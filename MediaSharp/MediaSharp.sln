@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaSharp", "MediaSharp\MediaSharp.csproj", "{CD9167CD-C72F-4D41-9D99-FB2C622BDA96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD9167CD-C72F-4D41-9D99-FB2C622BDA96}.Debug|x86.ActiveCfg = Debug|x86
+		{CD9167CD-C72F-4D41-9D99-FB2C622BDA96}.Debug|x86.Build.0 = Debug|x86
+		{CD9167CD-C72F-4D41-9D99-FB2C622BDA96}.Release|x86.ActiveCfg = Release|x86
+		{CD9167CD-C72F-4D41-9D99-FB2C622BDA96}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = MediaSharp\MediaSharp.csproj
+	EndGlobalSection
+EndGlobal
