@@ -43,10 +43,11 @@ namespace MediaSharp.Controller
         {
             view.ClearGrid();
             foreach (Document doc in Model.AllDocuments)
+            {
                 view.AddDocumentToGrid(doc);
+            }
 
             view.SetSelectedDocumentInGrid((Document)Model.AllDocuments[0]);
-
         }
 
         #endregion

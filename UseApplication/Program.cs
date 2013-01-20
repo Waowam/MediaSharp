@@ -18,14 +18,16 @@ namespace UseApplication
         [STAThread]
         static void Main()
         {
-            Document[] docs = {new Document("SuperTitle1",new Author("Name 1","Firstname 1"),true),
-                                   new Document("Test", new Author("Name 2","Firstname 2"),false)};
-            Mediatheque m = new Mediatheque(docs);
+            Mediatheque m = new Mediatheque();
+            m.AddDocument(new Document("SuperTitle1", new Author("Name 1", "Firstname 1"), true));
+            m.AddDocument(new Document("Test", new Author("Name 2", "Firstname 2"), false));
 
             View_mdtq view = new View_mdtq();
             view.Visible = false;
 
             Ctrl_mediatheque controller = new Ctrl_mediatheque(m, view);
+            controller.LoadView();
+            view.ShowDialog();
         }
     }
 }

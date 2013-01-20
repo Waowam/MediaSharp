@@ -20,7 +20,6 @@ namespace MediaSharp.View
         public View_mdtq()
         {
             InitializeComponent();
-            Update_ListBox();
         }
 
         public void Update_ListBox()
@@ -36,7 +35,8 @@ namespace MediaSharp.View
         }
 
         public void ClearGrid()
-        { 
+        {
+            Console.WriteLine("ClearGrid method");
             // Define columns in grid
             this.grdDocs.Columns.Clear();
 
@@ -44,6 +44,7 @@ namespace MediaSharp.View
             this.grdDocs.Columns.Add("Author", 150, HorizontalAlignment.Left);
             this.grdDocs.Columns.Add("Copyright", 150, HorizontalAlignment.Left);
 
+            Console.WriteLine(this.grdDocs.Columns.Count);
             // Add rows to grid
             this.grdDocs.Items.Clear();
         }

@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.grdDocs = new System.Windows.Forms.ListView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -43,21 +45,35 @@
             // 
             // grdDocs
             // 
-            this.grdDocs.Location = new System.Drawing.Point(16, 35);
+            this.grdDocs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdDocs.Location = new System.Drawing.Point(0, 0);
+            this.grdDocs.MultiSelect = false;
             this.grdDocs.Name = "grdDocs";
-            this.grdDocs.Size = new System.Drawing.Size(256, 215);
+            this.grdDocs.Size = new System.Drawing.Size(599, 225);
+            this.grdDocs.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.grdDocs.TabIndex = 2;
             this.grdDocs.UseCompatibleStateImageBehavior = false;
+            this.grdDocs.View = System.Windows.Forms.View.Details;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoSize = true;
+            this.panel1.Controls.Add(this.grdDocs);
+            this.panel1.Location = new System.Drawing.Point(16, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(599, 225);
+            this.panel1.TabIndex = 3;
             // 
             // View_mdtq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.grdDocs);
+            this.ClientSize = new System.Drawing.Size(627, 262);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Name = "View_mdtq";
             this.Text = "Form1";
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -67,5 +83,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListView grdDocs;
+        private System.Windows.Forms.Panel panel1;
     }
 }
