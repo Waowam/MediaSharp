@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UseApplication", "UseApplication\UseApplication.csproj", "{BEB7B5B4-1B72-4B91-8E59-B9D1993DC5DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modal", "Modal\Modal.csproj", "{05438391-470F-4618-B9F4-FE8AE22112E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Modal\Model.csproj", "{05438391-470F-4618-B9F4-FE8AE22112E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{67B59523-3877-4D7B-B184-50B6AA64983D}"
 EndProject

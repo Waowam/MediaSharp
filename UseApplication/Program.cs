@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using MediaSharp.Controller;
-using MediaSharp.Modal;
+using MediaSharp.Model;
 using MediaSharp.View;
 
 namespace UseApplication

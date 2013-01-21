@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using MediaSharp.Modal;
+using MediaSharp.Model;
 using MediaSharp.Controller;
 
 namespace MediaSharp.View

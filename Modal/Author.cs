@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaSharp.Modal
+namespace MediaSharp.Model
 {
     public class Author
     {
@@ -19,7 +19,7 @@ namespace MediaSharp.Modal
 
         public string FirstName { get { return firstName; } set { firstName = value; } }
 
-        public Author(Modal.Author a)
+        public Author(Model.Author a)
         {
             a.Name = name;
         }

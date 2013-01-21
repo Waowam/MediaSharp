@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaSharp.Modal
+namespace MediaSharp.Model
 {
     public class Document
     {
@@ -56,7 +56,7 @@ namespace MediaSharp.Modal
             public Document(String t, Author a, bool c)
         {
             Title = t;
-            authors = new Modal.Author[] { a };
+            authors = new Model.Author[] { a };
             copyright = c;
         }
     }

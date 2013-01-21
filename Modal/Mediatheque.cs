@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MediaSharp.Modal
+namespace MediaSharp.Model
 {
     public class Mediatheque
     {
@@ -40,7 +40,7 @@ namespace MediaSharp.Modal
             docs = new List<Document>();
         }
 
-        public Mediatheque(Modal.Mediatheque m)
+        public Mediatheque(Model.Mediatheque m)
         {
             docs = m.AllDocuments;
         }

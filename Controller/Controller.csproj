@@ -44,9 +44,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Modal\Modal.csproj">
+    <ProjectReference Include="..\Modal\Model.csproj">
       <Project>{05438391-470f-4618-b9f4-fe8ae22112e7}</Project>
-      <Name>Modal</Name>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

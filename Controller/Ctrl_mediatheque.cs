@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-using MediaSharp.Modal;
+using MediaSharp.Model;
 
 namespace MediaSharp.Controller
 {
@@ -14,7 +14,7 @@ namespace MediaSharp.Controller
         Mediatheque model;
         IDocView view;
 
-        public MediaSharp.Modal.Mediatheque Model
+        public MediaSharp.Model.Mediatheque Model
         {
            get { return model; }
            set { model = value; }
@@ -30,7 +30,7 @@ namespace MediaSharp.Controller
         public String[] get_all_documents()
         {
             List<string> s = new List<string>();
-            foreach (MediaSharp.Modal.Document d in Model.AllDocuments.ToArray())
+            foreach (MediaSharp.Model.Document d in Model.AllDocuments.ToArray())
             {
                 s.Add(d.Print());
             }
