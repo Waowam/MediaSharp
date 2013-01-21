@@ -22,11 +22,6 @@ namespace MediaSharp.View
             InitializeComponent();
         }
 
-        public void Update_ListBox()
-        {
-            //listBox1.DataSource = documents;
-        }
-
         #region IDocView implementation
 
         public void SetController(Ctrl_mediatheque _controller)
@@ -40,6 +35,7 @@ namespace MediaSharp.View
             // Define columns in grid
             this.grdDocs.Columns.Clear();
 
+            this.grdDocs.Columns.Add("ID", 150, HorizontalAlignment.Left);
             this.grdDocs.Columns.Add("Title", 150, HorizontalAlignment.Left);
             this.grdDocs.Columns.Add("Author", 150, HorizontalAlignment.Left);
             this.grdDocs.Columns.Add("Copyright", 150, HorizontalAlignment.Left);
@@ -52,24 +48,117 @@ namespace MediaSharp.View
         public void AddDocumentToGrid(Document doc) 
         {
             ListViewItem parent;
-            parent = this.grdDocs.Items.Add(doc.Title);
+            parent = this.grdDocs.Items.Add(doc.ID);
+            parent.SubItems.Add(doc.Title);
             parent.SubItems.Add(doc.Authors[0]);
             parent.SubItems.Add(doc.Copyright);
         }
 
-        public void UpdateGridWithChangedDocument(Document doc) { }
+        public void UpdateGridWithChangedDocument(Document doc) 
+        {
+            ListViewItem rowToUpdate = null;
 
-        public void RemoveDocumentFromGrid(Document doc) { }
+            foreach (ListViewItem row in this.grdDocs.Items)
+            {
+                if (row.Text == doc.ID)
+                {
+                    rowToUpdate = row;
+                }
+            }
 
-        public string GetIdOfSelectedUserInGrid() { return ""; }
+            if (rowToUpdate != null)
+            {
+                rowToUpdate.Text = doc.ID;
+                rowToUpdate.SubItems[1].Text = doc.Title;
+                rowToUpdate.SubItems[2].Text = doc.Authors[0];
+            }
+        }
 
-        public void SetSelectedDocumentInGrid(Document doc) { }
+        public void RemoveDocumentFromGrid(Document doc) 
+        {
+            ListViewItem rowToRemove = null;
 
-        /*
-        string Title { get; set; }
-        string Authors { get; set; }
-        string Copyright { get; set; }
-        */
+            foreach (ListViewItem row in this.grdDocs.Items)
+            {
+                if (row.Text == doc.ID)
+                {
+                    rowToRemove = row;
+                }
+            }
+
+            if (rowToRemove != null)
+            {
+                this.grdDocs.Items.Remove(rowToRemove);
+                this.grdDocs.Focus();
+            }
+        }
+
+        public string GetIdOfSelectedDocumentInGrid() 
+        {
+            if (this.grdDocs.SelectedItems.Count > 0)
+                return this.grdDocs.SelectedItems[0].Text;
+            else
+                return "";
+        }
+
+        public void SetSelectedDocumentInGrid(Document doc) 
+        {
+            foreach (ListViewItem row in this.grdDocs.Items)
+            {
+                if (row.Text == doc.ID)
+                {
+                    row.Selected = true;
+                }
+            }
+        }
+
+        public string Title 
+        {
+            get { return this.txtTitle.Text; }
+            set { this.txtTitle.Text = value; }
+        }
+
+        public string[] Author 
+        {
+            get
+            { 
+                List<string> auth = new List<string>();
+                foreach (ComboBox.ObjectCollection o in this.cbBox_authors.Items)
+                {
+                    auth.Add(o.ToString());
+                }
+                return auth.ToArray();
+            }
+            set 
+            {
+                this.cbBox_authors.Items.Clear();
+
+            }
+        }
+
+        public string ID
+        { 
+            get { return this.txtID.Text; }
+            set { this.txtID.Text = value; } 
+        }
+
+        public string Copyright
+        {
+            get { return this.chBox_copyrght.CheckState == CheckState.Checked ? "true" : "false"; }
+            set 
+            { 
+                if(value=="true")
+                    this.chBox_copyrght.CheckState = CheckState.Checked; 
+                else
+                    this.chBox_copyrght.CheckState = CheckState.Unchecked;
+            }
+        }
+
+        public bool CanModifyID
+        {
+            set { this.txtID.Enabled = value; }
+        }
+
         #endregion
     }
 }

@@ -15,11 +15,12 @@ namespace MediaSharp.Controller
         void AddDocumentToGrid(Document _document);
         void UpdateGridWithChangedDocument(Document _document);
         void RemoveDocumentFromGrid(Document _document);
-        string GetIdOfSelectedUserInGrid();
+        string GetIdOfSelectedDocumentInGrid();
         void SetSelectedDocumentInGrid(Document _document);
 
-       /* string Title { get; set; }
-        string Authors { get; set; }
-        string Copyright { get; set; }*/
+        string Title { get; set; }
+        string[] Author { get; set; }
+        string ID { get; set; }
+        bool CanModifyID { set; }
     }
 }
