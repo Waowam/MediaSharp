@@ -55,6 +55,50 @@ namespace MediaSharp.Model
                 docs.Remove(d);
             }
         }
+
+        public List<Document> GetAudio()
+        {
+            List<Document> resAudio = new List<Document>();
+            foreach (Document d in docs)
+            {
+                if (d is Audio)
+                    resAudio.Add(d);
+            }
+            return resAudio;
+        }
+
+        public List<Document> GetVideo()
+        {
+            List<Document> resAudio = new List<Document>();
+            foreach (Document d in docs)
+            {
+                if (d is Video)
+                    resAudio.Add(d);
+            }
+            return resAudio;
+        }
+
+        public List<Document> GetAudio()
+        {
+            List<Document> resAudio = new List<Document>();
+            foreach (Document d in docs)
+            {
+                if (d is Audio)
+                    resAudio.Add(d);
+            }
+            return resAudio;
+        }
+
+        public List<Document> GetMultimedia()
+        {
+            List<Document> resAudio = new List<Document>();
+            foreach (Document d in docs)
+            {
+                if (d is Audio)
+                    resAudio.Add(d);
+            }
+            return resAudio;
+        }
         #endregion
     }
 }
