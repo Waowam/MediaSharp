@@ -11,6 +11,7 @@ namespace MediaSharp.Model
         private string name;
         private string firstName;
 
+        #region SETTERS&GETTERS
         public string Name
         {
             get { return name; }
@@ -18,7 +19,8 @@ namespace MediaSharp.Model
         }
 
         public string FirstName { get { return firstName; } set { firstName = value; } }
-
+        #endregion
+        #region CONSTRUCTORS
         public Author(Model.Author a)
         {
             a.Name = name;
@@ -29,5 +31,6 @@ namespace MediaSharp.Model
             name = n;
             firstName = fn;
         }
+        #endregion
     }
 }

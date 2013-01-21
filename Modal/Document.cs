@@ -8,9 +8,18 @@ namespace MediaSharp.Model
 {
     public class Document
     {
+        private string id;
         private string title;
         private Author[] authors;
         private bool copyright;
+
+
+        #region SETTERS&GETTERS
+        public string Id
+        {
+            get { return id; }
+            set { id = value; }
+        }
 
         public string Title 
         {
@@ -35,7 +44,24 @@ namespace MediaSharp.Model
             get { return copyright == true ? "©" : ""; }
         }
 
-        public string Print()
+        #endregion
+        #region CONSTRUCTORS
+        public Document(String t, Author[] a, bool c)
+        {
+            Title = t;
+            authors = a;
+            copyright = c;
+        }
+
+        public Document(String t, Author a, bool c)
+        {
+            Title = t;
+            authors = new Model.Author[] { a };
+            copyright = c;
+        }
+        #endregion
+        #region METHODS
+        public string Display()
         {
             string authors = "";
             string lastAut = Authors.Last();
@@ -46,18 +72,6 @@ namespace MediaSharp.Model
             }
             return "\"" + Title + "\"" + authors + "- " + Copyright;
         }
-
-        public Document(String t, Author[] a, bool c)
-        {
-            Title = t;
-            authors = a;
-            copyright = c;
-        }
-            public Document(String t, Author a, bool c)
-        {
-            Title = t;
-            authors = new Model.Author[] { a };
-            copyright = c;
-        }
+        #endregion
     }
 }

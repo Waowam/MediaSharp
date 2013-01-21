@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaSharp.Model
 {
-    public class Multimedia
+    public class Multimedia : Document
     {
     }
 }

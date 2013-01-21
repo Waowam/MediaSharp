@@ -12,6 +12,7 @@ namespace MediaSharp.Model
         private string editor;
         private string number;
 
+        #region SETTERS&GETTERS
         public string Title
         {
             get { return title; }
@@ -29,5 +30,6 @@ namespace MediaSharp.Model
             get { return number; }
             set{ number = value; }
         }
+        #endregion
     }
 }

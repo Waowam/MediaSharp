@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace MediaSharp.Model
 {
-    public class Audio
+    public class Audio : Document
     {
+        private int duration;
+
+        #region SETTERS&GETTERS
+        public int Duration
+        {
+            get;
+            set;
+        }
+        #endregion
     }
 }

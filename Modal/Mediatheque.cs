@@ -10,12 +10,33 @@ namespace MediaSharp.Model
     {
         private List<Document> docs;
 
+        #region SETTERS&GETTERS
         public List<Document> AllDocuments
         {
             get { return docs; }
             set { docs = value; }
         }
+        #endregion
+        #region CONSTRUCTORS
+        public Mediatheque()
+        {
+            docs = new List<Document>();
+        }
 
+        public Mediatheque(Model.Mediatheque m)
+        {
+            docs = m.AllDocuments;
+        }
+
+        public Mediatheque(Document[] d)
+        {
+            foreach (Document doc in d)
+            {
+                docs.Add(doc);
+            }
+        }
+        #endregion
+        #region METHODS
         public void AddDocument(Document d)
         {
             docs.Add(d);
@@ -34,23 +55,6 @@ namespace MediaSharp.Model
                 docs.Remove(d);
             }
         }
-
-        public Mediatheque()
-        {
-            docs = new List<Document>();
-        }
-
-        public Mediatheque(Model.Mediatheque m)
-        {
-            docs = m.AllDocuments;
-        }
-
-        public Mediatheque(Document[] d)
-        {
-            foreach(Document doc in d)
-            {
-                docs.Add(doc);
-            }
-        }
+        #endregion
     }
 }

@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace MediaSharp.Model
 {
-    public class Article
+    public class Article : Text
     {
         public Review review;
 
+        #region SETTERS&GETTERS
         public string Review
         {
             get { return review.ToString(); }
         }
+        #endregion
     }
 }

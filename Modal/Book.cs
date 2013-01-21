@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace MediaSharp.Model
 {
-    public class Book
+    public class Book : Text
     {
         private string editor;
         private int publicationYear;
 
+        #region SETTERS&GETTERS
         public string Editor
         {
             get { return editor; }
@@ -21,5 +22,6 @@ namespace MediaSharp.Model
         {
             get { return publicationYear.ToString(); }
         }
+        #endregion
     }
 }
