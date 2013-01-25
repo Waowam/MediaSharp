@@ -15,7 +15,7 @@ namespace MediaSharp.Model
 
 
         #region SETTERS&GETTERS
-        public string Id
+        public string ID
         {
             get { return id; }
             set { id = value; }
@@ -41,28 +41,36 @@ namespace MediaSharp.Model
 
         public string Copyright
         {
-            get { return copyright == true ? "©" : ""; }
+            get { return copyright == true ? "true" : "false"; }
+            set {
+                if (value == "true")
+                    copyright = true ;
+                else 
+                    copyright = false;
+            }
         }
 
         #endregion
         #region CONSTRUCTORS
-        public Document(String t, Author[] a, bool c)
+        public Document(String id, String title, Author[] ats, bool c)
         {
-            Title = t;
-            authors = a;
+            Title = title;
+            ID = id;
+            authors = ats;
             copyright = c;
         }
 
-        public Document(String t, Author a, bool c)
+        public Document(String id, String t, Author a, bool c)
         {
             Title = t;
+            ID = id;
             authors = new Model.Author[] { a };
             copyright = c;
         }
         public Document()
         {
             Title = "Sans titre";
-            authors = []
+            authors = null;//Faut trouvé un moyen d'init mais pas a null
             copyright = false;
         }
         #endregion

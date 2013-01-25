@@ -55,15 +55,14 @@ namespace MediaSharp.Controller
         private void updateUserWithViewValues(Document doc)
         {
             doc.Title = view.Title;
-            doc.Author = view.Author;
             doc.Copyright = view.Copyright;
         }
 
-        public void SelectedUserChanged(string selectedUserId)
+        public void SelectedDocumentChanged(string selectedDocId)
         {
-            foreach (Document doc in Model.AddDocument)
+            foreach (Document doc in Model.AllDocuments)
             {
-                if (doc.ID == selectedUserId)
+                if (doc.ID == selectedDocId)
                 {
                     selectedDoc = doc;
                     updateViewDetailValues(doc);
@@ -77,10 +76,7 @@ namespace MediaSharp.Controller
 
         public void AddNewUser()
         {
-            selectedDoc = new Document(""/*Title*/,
-                                     "" /*Authors*/,
-                                     ""  /*id*/,
-                                     ""/*copyright*/);
+            selectedDoc = new Document();
 
             this.updateViewDetailValues(selectedDoc);
             this.view.CanModifyID = true;
@@ -93,7 +89,7 @@ namespace MediaSharp.Controller
 
             if (id != "")
             {
-                foreach (Document doc in this.Model.AddDocument)
+                foreach (Document doc in this.Model.AllDocuments)
                 {
                     if (doc.ID == id)
                     {
@@ -130,7 +126,7 @@ namespace MediaSharp.Controller
                 // Update existing
                 this.view.UpdateGridWithChangedDocument(selectedDoc);
             }
-            view.SetSelectedUserInGrid(selectedDoc);
+            view.SetSelectedDocumentInGrid(selectedDoc);
             this.view.CanModifyID = false;
 
         }

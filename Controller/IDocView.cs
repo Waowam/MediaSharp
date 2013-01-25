@@ -22,5 +22,6 @@ namespace MediaSharp.Controller
         string[] Author { get; set; }
         string ID { get; set; }
         bool CanModifyID { set; }
+        string Copyright { get; set; }
     }
 }

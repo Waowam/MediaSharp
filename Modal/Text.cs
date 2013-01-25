@@ -15,12 +15,12 @@ namespace MediaSharp.Model
         }
         #endregion
         #region CONSTRUCTORS
-        public Text(String t, Author[] a, bool c) : base(t, a, c)
+        public Text(String i,String t, Author[] a, bool c) : base(i,t, a, c)
         {
 
         }
 
-        public Text(String t, Author a, bool c) : base(t, a, c)
+        public Text(String i,String t, Author a, bool c) : base(i,t, a, c)
         {
 
         }

@@ -22,6 +22,33 @@ namespace MediaSharp.View
             InitializeComponent();
         }
 
+        #region Events raised  back to controller
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            this.controler.AddNewUser();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            this.controler.RemoveUser();
+        }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            this.controler.Save();
+        }
+
+        private void grdDocs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (this.grdDocs.SelectedItems.Count > 0)
+                this.controler.SelectedDocumentChanged(this.grdDocs.SelectedItems[0].Text);
+           
+        }
+
+
+        #endregion
+
         #region IDocView implementation
 
         public void SetController(Ctrl_mediatheque _controller)
@@ -71,6 +98,7 @@ namespace MediaSharp.View
                 rowToUpdate.Text = doc.ID;
                 rowToUpdate.SubItems[1].Text = doc.Title;
                 rowToUpdate.SubItems[2].Text = doc.Authors[0];
+                rowToUpdate.SubItems[3].Text = doc.Copyright;
             }
         }
 
@@ -101,8 +129,9 @@ namespace MediaSharp.View
                 return "";
         }
 
-        public void SetSelectedDocumentInGrid(Document doc) 
+        public void SetSelectedDocumentInGrid(Document doc)
         {
+            Console.WriteLine("Methode SetSelectedDocumentInGrid");
             foreach (ListViewItem row in this.grdDocs.Items)
             {
                 if (row.Text == doc.ID)
@@ -131,8 +160,8 @@ namespace MediaSharp.View
             }
             set 
             {
-                this.cbBox_authors.Items.Clear();
-
+                this.cbBox_authors.DataSource = value;
+                this.cbBox_authors.Refresh();
             }
         }
 
@@ -160,5 +189,6 @@ namespace MediaSharp.View
         }
 
         #endregion
+
     }
 }

@@ -18,13 +18,13 @@ namespace MediaSharp.Model
         }
         #endregion
         #region CONSTRUCTORS
-        public Video(String t, Author[] a, bool c, int d) : base(t, a, c)
+        public Video(String i,String t, Author[] a, bool c, int d) : base(i ,t, a, c)
         {
             Duration = d;
 
         }
 
-        public Video(String t, Author a, bool c, int d) : base(t, a, c)
+        public Video(String i,String t, Author a, bool c, int d) : base(i ,t , a, c)
         {
             Duration = d;
 

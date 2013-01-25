@@ -18,7 +18,7 @@ namespace MediaSharp.Model
         public Text Text { get; set; }
         #endregion
         #region CONSTRUCTORS
-        public Multimedia(String t, Author[] a, bool c, Audio s, Video v, Text te) : base(t, a, c)
+        public Multimedia(String i,String t, Author[] a, bool c, Audio s, Video v, Text te) : base(i,t, a, c)
         {
             Sound = s;
             Image = v;
@@ -26,7 +26,7 @@ namespace MediaSharp.Model
 
         }
 
-        public Multimedia(String t, Author a, bool c, Audio s, Video v, Text te) : base(t, a, c)
+        public Multimedia(String i, String t, Author a, bool c, Audio s, Video v, Text te) : base(i,t, a, c)
         {
             Sound = s;
             Image = v;
