@@ -8,10 +8,6 @@ namespace MediaSharp.Model
 {
     public class Multimedia : Document
     {
-        private Audio sound;
-        private Video image;
-        private Text text;
-
         #region SETTERS&GETTERS
         public Audio Sound { get; set; }
         public Video Image { get; set; }

@@ -8,8 +8,6 @@ namespace MediaSharp.Model
 {
     public class Video : Document
     {
-        private int duration;
-
         #region SETTERS&GETTERS
         public int Duration
         {

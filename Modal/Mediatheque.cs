@@ -15,19 +15,19 @@ namespace MediaSharp.Model
         #region CONSTRUCTORS
         public Mediatheque()
         {
-            docs = new List<Document>();
+            AllDocuments = new List<Document>();
         }
 
         public Mediatheque(Model.Mediatheque m)
         {
-            docs = m.AllDocuments;
+            AllDocuments = m.AllDocuments;
         }
 
         public Mediatheque(Document[] d)
         {
             foreach (Document doc in d)
             {
-                docs.Add(doc);
+                AllDocuments.Add(doc);
             }
         }
         #endregion

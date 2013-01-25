@@ -8,28 +8,12 @@ namespace MediaSharp.Model
 {
     public class Review
     {
-        private string title;
-        private string editor;
-        private string number;
-
         #region SETTERS&GETTERS
-        public string Title
-        {
-            get { return title; }
-            set { title = value; }
-        }
+        public string Title { get; set; }
 
-        public string Editor
-        {
-             get { return editor; }
-             set { editor = value; }
-        }
+        public string Editor { get; set; }
 
-        public string Number
-        {
-            get { return number; }
-            set{ number = value; }
-        }
+        public string Number { get; set; }
         #endregion
     }
 }
