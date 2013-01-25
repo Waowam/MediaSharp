@@ -59,6 +59,12 @@ namespace MediaSharp.Model
             authors = new Model.Author[] { a };
             copyright = c;
         }
+        public Document()
+        {
+            Title = "Sans titre";
+            authors = []
+            copyright = false;
+        }
         #endregion
         #region METHODS
         public string Display()

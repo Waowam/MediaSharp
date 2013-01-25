@@ -45,7 +45,7 @@ namespace MediaSharp.Controller
         private void updateViewDetailValues(Document doc)
         {
             //Vue de detail a realisé
-            view.ID = doc.ID
+            view.ID = doc.ID;
             view.Title = doc.Title;
             view.Author = doc.Authors;
             view.Copyright = doc.Copyright;

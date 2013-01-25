@@ -17,5 +17,29 @@ namespace MediaSharp.Model
         public Video Image { get; set; }
         public Text Text { get; set; }
         #endregion
+        #region CONSTRUCTORS
+        public Multimedia(String t, Author[] a, bool c, Audio s, Video v, Text te) : base(t, a, c)
+        {
+            Sound = s;
+            Image = v;
+            Text = te;
+
+        }
+
+        public Multimedia(String t, Author a, bool c, Audio s, Video v, Text te) : base(t, a, c)
+        {
+            Sound = s;
+            Image = v;
+            Text = te;
+
+        }
+
+        public Multimedia() : base()
+        {
+            Sound = null;
+            Image = null;
+            Text = null;
+        }
+        #endregion
     }
 }

@@ -78,12 +78,12 @@ namespace MediaSharp.Model
             return resAudio;
         }
 
-        public List<Document> GetAudio()
+        public List<Document> GetText()
         {
             List<Document> resAudio = new List<Document>();
             foreach (Document d in docs)
             {
-                if (d is Audio)
+                if (d is Text)
                     resAudio.Add(d);
             }
             return resAudio;
