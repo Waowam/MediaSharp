@@ -22,6 +22,8 @@ namespace UseApplication
             m.AddDocument(new Document("NAM1SPT","SuperTitle1", new Author("Name 1", "Firstname 1"), true));
             m.AddDocument(new Document("NAM2TES","Test", new Author("Name 2", "Firstname 2"), false));
             m.AddDocument(new Text("TXT3TP", "SuperText", new Author("bla", "bli"), true));
+            m.AllDocuments[0].serialize(@"testSerial.med");
+            m.AddDocument(m.AllDocuments[0].deSerialize(@"testSerial.med"));
 
             View_mdtq view = new View_mdtq();
             view.Visible = false;

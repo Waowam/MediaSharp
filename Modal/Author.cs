@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MediaSharp.Model
 {
+    [Serializable()]
     public class Author
     {
         private string name;
