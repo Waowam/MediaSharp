@@ -26,15 +26,15 @@ namespace MediaSharp.View
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            this.controler.AddNewUser();
+            this.controler.AddNewDocument();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            this.controler.RemoveUser();
+            this.controler.RemoveDocument();
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void btnEdit_Click(object sender, EventArgs e)
         {
             this.controler.Save();
         }

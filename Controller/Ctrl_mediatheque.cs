@@ -74,7 +74,7 @@ namespace MediaSharp.Controller
         }
 
 
-        public void AddNewUser()
+        public void AddNewDocument()
         {
             selectedDoc = new Document();
 
@@ -82,7 +82,7 @@ namespace MediaSharp.Controller
             this.view.CanModifyID = true;
         }
 
-        public void RemoveUser()
+        public void RemoveDocument()
         {
             string id = this.view.GetIdOfSelectedDocumentInGrid();
             Document docToRemove = null;
