@@ -9,34 +9,25 @@ namespace MediaSharp.Model
     [Serializable()]
     public class Author
     {
-        private string name;
-        private string firstName;
-
         #region SETTERS&GETTERS
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public string Name { get; set; }
 
-        public string FirstName { get { return firstName; } set { firstName = value; } }
+        public string FirstName { get; set; }
         #endregion
         #region CONSTRUCTORS
         public Author(Model.Author a)
         {
-            a.Name = name;
+            Name = a.Name;
         }
 
         public Author(String n, String fn)
         {
-            name = n;
-            firstName = fn;
+            Name = n;
+            FirstName = fn;
         }
 
-        public Author()
+        public Author() : this("","")
         {
-            name = "";
-            firstName = "";
         }
         #endregion
     }

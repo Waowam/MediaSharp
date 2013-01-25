@@ -8,15 +8,10 @@ namespace MediaSharp.Model
 {
     public class Book : Text
     {
-        private string editor;
         private int publicationYear;
 
         #region SETTERS&GETTERS
-        public string Editor
-        {
-            get { return editor; }
-            set { editor = value; }
-        }
+        public string Editor { get; set; }
 
         public string PublicationYear
         {

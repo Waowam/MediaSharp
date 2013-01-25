@@ -8,8 +8,6 @@ namespace MediaSharp.Model
 {
     public class Audio : Document
     {
-        private int duration;
-
         #region SETTERS&GETTERS
         public int Duration
         {

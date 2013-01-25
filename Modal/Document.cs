@@ -3,33 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MediaSharp.Model
 {
      [Serializable()]
     public class Document
     {
-        private string id;
-        private string title;
         private Author author;
         private bool copyright;
 
 
         #region SETTERS&GETTERS
-        public string ID
-        {
-            get { return id; }
-            set { id = value; }
-        }
+        public string ID { get; set; }
 
-        public string Title 
-        {
-            get { return title; }
-            set { title = value;}
-        }
+        public string Title { get; set; }
         
         public string Author {
             get { return author.FirstName + " " + author.Name;}
@@ -73,24 +60,6 @@ namespace MediaSharp.Model
         {
             
             return "\"" + Title + "\"" + Author + "- " + Copyright;
-        }
-
-        public void serialize(string fileName)
-        {
-            FileStream s;
-            s = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite);
-            BinaryFormatter B = new BinaryFormatter();
-            B.Serialize(s, this);
-            s.Close();
-        }
-
-        public Document deSerialize(string fileName)
-        {
-            FileStream Fs = new FileStream(fileName, FileMode.Open, FileAccess.Read);
-            BinaryFormatter F = new BinaryFormatter();
-            Document s1 = (Document)F.Deserialize(Fs);
-            Fs.Close();
-            return s1;
         }
         #endregion
     }

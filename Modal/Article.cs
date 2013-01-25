@@ -8,7 +8,7 @@ namespace MediaSharp.Model
 {
     public class Article : Text
     {
-        public Review review;
+        private Review review;
 
         #region SETTERS&GETTERS
         public string Review
