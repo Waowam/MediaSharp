@@ -10,7 +10,7 @@ namespace MediaSharp.Model
     {
         private string id;
         private string title;
-        private Author[] authors;
+        private Author author;
         private bool copyright;
 
 
@@ -27,15 +27,12 @@ namespace MediaSharp.Model
             set { title = value;}
         }
         
-        public string[] Authors {
-            get
+        public string Author {
+            get { return author.FirstName + " " + author.Name;}
+            set 
             {
-                List<string> allAuth = new List<string>();
-                
-                foreach(Author a in authors){
-                    allAuth.Add(a.Name);
-                }
-                return allAuth.ToArray();
+                string[] tmp= value.Split(' ');
+                author = new Author(tmp[1], tmp[0]);
             }
         }
 
@@ -52,39 +49,26 @@ namespace MediaSharp.Model
 
         #endregion
         #region CONSTRUCTORS
-        public Document(String id, String title, Author[] ats, bool c)
-        {
-            Title = title;
-            ID = id;
-            authors = ats;
-            copyright = c;
-        }
 
         public Document(String id, String t, Author a, bool c)
         {
             Title = t;
             ID = id;
-            authors = new Model.Author[] { a };
-            copyright = c;
+            Author =  a.Name+" "+a.FirstName ;
+            Copyright = c.ToString();
         }
         public Document()
         {
             Title = "Sans titre";
-            authors = null;//Faut trouvé un moyen d'init mais pas a null
+            author = new Author();//Faut trouvé un moyen d'init mais pas a null
             copyright = false;
         }
         #endregion
         #region METHODS
         public string Display()
         {
-            string authors = "";
-            string lastAut = Authors.Last();
-            foreach (string a in Authors)
-            {
-                authors = a;
-                authors += ((lastAut==a) ? "" : ", ");
-            }
-            return "\"" + Title + "\"" + authors + "- " + Copyright;
+            
+            return "\"" + Title + "\"" + Author + "- " + Copyright;
         }
         #endregion
     }

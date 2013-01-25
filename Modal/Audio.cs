@@ -18,12 +18,6 @@ namespace MediaSharp.Model
         }
         #endregion
         #region CONSTRUCTORS
-        public Audio(String i,String t, Author[] a, bool c, int d) : base(i,t, a, c)
-        {
-            Duration = d;
-
-        }
-
         public Audio(String i, String t, Author a, bool c, int d)
             : base(i,t, a, c)
         {

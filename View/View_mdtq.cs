@@ -77,11 +77,11 @@ namespace MediaSharp.View
             ListViewItem parent;
             parent = this.grdDocs.Items.Add(doc.ID);
             parent.SubItems.Add(doc.Title);
-            parent.SubItems.Add(doc.Authors[0]);
+            parent.SubItems.Add(doc.Author);
             parent.SubItems.Add(doc.Copyright);
         }
 
-        public void UpdateGridWithChangedDocument(Document doc) 
+        public void UpdateGridWithChangedDocument(Document doc)
         {
             ListViewItem rowToUpdate = null;
 
@@ -97,7 +97,7 @@ namespace MediaSharp.View
             {
                 rowToUpdate.Text = doc.ID;
                 rowToUpdate.SubItems[1].Text = doc.Title;
-                rowToUpdate.SubItems[2].Text = doc.Authors[0];
+                rowToUpdate.SubItems[2].Text = doc.Author;
                 rowToUpdate.SubItems[3].Text = doc.Copyright;
             }
         }
@@ -131,7 +131,6 @@ namespace MediaSharp.View
 
         public void SetSelectedDocumentInGrid(Document doc)
         {
-            Console.WriteLine("Methode SetSelectedDocumentInGrid");
             foreach (ListViewItem row in this.grdDocs.Items)
             {
                 if (row.Text == doc.ID)
@@ -147,22 +146,10 @@ namespace MediaSharp.View
             set { this.txtTitle.Text = value; }
         }
 
-        public string[] Author 
+        public string Author 
         {
-            get
-            { 
-                List<string> auth = new List<string>();
-                foreach (ComboBox.ObjectCollection o in this.cbBox_authors.Items)
-                {
-                    auth.Add(o.ToString());
-                }
-                return auth.ToArray();
-            }
-            set 
-            {
-                this.cbBox_authors.DataSource = value;
-                this.cbBox_authors.Refresh();
-            }
+            get { return this.txtAuthor.Text; }
+            set { this.txtAuthor.Text = value; }
         }
 
         public string ID

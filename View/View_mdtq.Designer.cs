@@ -41,7 +41,6 @@
             this.chBox_copyrght = new System.Windows.Forms.CheckBox();
             this.cbBox_categorie = new System.Windows.Forms.ComboBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.cbBox_authors = new System.Windows.Forms.ComboBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.txtAuthor = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -167,10 +167,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtAuthor);
             this.groupBox2.Controls.Add(this.chBox_copyrght);
             this.groupBox2.Controls.Add(this.cbBox_categorie);
             this.groupBox2.Controls.Add(this.txtTitle);
-            this.groupBox2.Controls.Add(this.cbBox_authors);
             this.groupBox2.Controls.Add(this.txtID);
             this.groupBox2.Controls.Add(this.button4);
             this.groupBox2.Controls.Add(this.label4);
@@ -209,18 +209,6 @@
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(142, 20);
             this.txtTitle.TabIndex = 7;
-            // 
-            // cbBox_authors
-            // 
-            this.cbBox_authors.FormattingEnabled = true;
-            this.cbBox_authors.Items.AddRange(new object[] {
-            "Super",
-            "test",
-            "ok"});
-            this.cbBox_authors.Location = new System.Drawing.Point(66, 75);
-            this.cbBox_authors.Name = "cbBox_authors";
-            this.cbBox_authors.Size = new System.Drawing.Size(99, 21);
-            this.cbBox_authors.TabIndex = 6;
             // 
             // txtID
             // 
@@ -284,6 +272,16 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // btnEdit
+            // 
+            this.btnEdit.Location = new System.Drawing.Point(429, 65);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(116, 23);
+            this.btnEdit.TabIndex = 8;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // btnRemove
             // 
             this.btnRemove.Location = new System.Drawing.Point(429, 94);
@@ -294,15 +292,12 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // btnEdit
+            // txtAuthor
             // 
-            this.btnEdit.Location = new System.Drawing.Point(429, 65);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(116, 23);
-            this.btnEdit.TabIndex = 8;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.txtAuthor.Location = new System.Drawing.Point(66, 72);
+            this.txtAuthor.Name = "txtAuthor";
+            this.txtAuthor.Size = new System.Drawing.Size(99, 20);
+            this.txtAuthor.TabIndex = 10;
             // 
             // View_mdtq
             // 
@@ -341,7 +336,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ComboBox cbBox_categorie;
         private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.ComboBox cbBox_authors;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label4;
@@ -352,5 +346,6 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.CheckBox chBox_copyrght;
+        private System.Windows.Forms.TextBox txtAuthor;
     }
 }

@@ -31,6 +31,12 @@ namespace MediaSharp.Model
             name = n;
             firstName = fn;
         }
+
+        public Author()
+        {
+            name = "";
+            firstName = "";
+        }
         #endregion
     }
 }

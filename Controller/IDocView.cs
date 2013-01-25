@@ -19,7 +19,7 @@ namespace MediaSharp.Controller
         void SetSelectedDocumentInGrid(Document _document);
 
         string Title { get; set; }
-        string[] Author { get; set; }
+        string Author { get; set; }
         string ID { get; set; }
         bool CanModifyID { set; }
         string Copyright { get; set; }

@@ -47,14 +47,16 @@ namespace MediaSharp.Controller
             //Vue de detail a realisé
             view.ID = doc.ID;
             view.Title = doc.Title;
-            view.Author = doc.Authors;
+            view.Author = doc.Author;
             view.Copyright = doc.Copyright;
 
         }
 
-        private void updateUserWithViewValues(Document doc)
+        private void updateDocumentWithViewValues(Document doc)
         {
+            doc.ID = view.ID;
             doc.Title = view.Title;
+            doc.Author = view.Author;
             doc.Copyright = view.Copyright;
         }
 
@@ -114,7 +116,7 @@ namespace MediaSharp.Controller
 
         public void Save()
         {
-            updateUserWithViewValues(selectedDoc);
+            updateDocumentWithViewValues(selectedDoc);
             if (!Model.AllDocuments.Contains(selectedDoc))
             {
                 // Add new user
