@@ -31,15 +31,16 @@
             this.grdDocs = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chBAll = new System.Windows.Forms.CheckBox();
+            this.chBVideo = new System.Windows.Forms.CheckBox();
+            this.chBMulti = new System.Windows.Forms.CheckBox();
+            this.chBBook = new System.Windows.Forms.CheckBox();
+            this.chBAudio = new System.Windows.Forms.CheckBox();
+            this.chBArt = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtType = new System.Windows.Forms.TextBox();
+            this.txtAuthor = new System.Windows.Forms.TextBox();
             this.chBox_copyrght = new System.Windows.Forms.CheckBox();
-            this.cbBox_categorie = new System.Windows.Forms.ComboBox();
             this.txtTitle = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
-            this.txtAuthor = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -80,12 +80,12 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox6);
-            this.groupBox1.Controls.Add(this.checkBox5);
-            this.groupBox1.Controls.Add(this.checkBox4);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.chBAll);
+            this.groupBox1.Controls.Add(this.chBVideo);
+            this.groupBox1.Controls.Add(this.chBMulti);
+            this.groupBox1.Controls.Add(this.chBBook);
+            this.groupBox1.Controls.Add(this.chBAudio);
+            this.groupBox1.Controls.Add(this.chBArt);
             this.groupBox1.Location = new System.Drawing.Point(12, 155);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(388, 66);
@@ -93,83 +93,89 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Categories";
             // 
-            // checkBox6
+            // chBAll
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Checked = true;
-            this.checkBox6.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox6.Location = new System.Drawing.Point(336, 29);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(37, 17);
-            this.checkBox6.TabIndex = 5;
-            this.checkBox6.Text = "All";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.chBAll.AutoSize = true;
+            this.chBAll.Checked = true;
+            this.chBAll.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chBAll.Location = new System.Drawing.Point(336, 29);
+            this.chBAll.Name = "chBAll";
+            this.chBAll.Size = new System.Drawing.Size(37, 17);
+            this.chBAll.TabIndex = 5;
+            this.chBAll.Text = "All";
+            this.chBAll.UseVisualStyleBackColor = true;
+            this.chBAll.CheckedChanged += new System.EventHandler(this.chBAll_CheckedChanged);
             // 
-            // checkBox5
+            // chBVideo
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Checked = true;
-            this.checkBox5.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox5.Location = new System.Drawing.Point(277, 29);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(53, 17);
-            this.checkBox5.TabIndex = 4;
-            this.checkBox5.Text = "Video";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.chBVideo.AutoSize = true;
+            this.chBVideo.Checked = true;
+            this.chBVideo.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chBVideo.Location = new System.Drawing.Point(277, 29);
+            this.chBVideo.Name = "chBVideo";
+            this.chBVideo.Size = new System.Drawing.Size(53, 17);
+            this.chBVideo.TabIndex = 4;
+            this.chBVideo.Text = "Video";
+            this.chBVideo.UseVisualStyleBackColor = true;
+            this.chBVideo.CheckedChanged += new System.EventHandler(this.chBVideo_CheckedChanged);
             // 
-            // checkBox4
+            // chBMulti
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Checked = true;
-            this.checkBox4.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox4.Location = new System.Drawing.Point(195, 29);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(76, 17);
-            this.checkBox4.TabIndex = 3;
-            this.checkBox4.Text = "Multimedia";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.chBMulti.AutoSize = true;
+            this.chBMulti.Checked = true;
+            this.chBMulti.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chBMulti.Location = new System.Drawing.Point(195, 29);
+            this.chBMulti.Name = "chBMulti";
+            this.chBMulti.Size = new System.Drawing.Size(76, 17);
+            this.chBMulti.TabIndex = 3;
+            this.chBMulti.Text = "Multimedia";
+            this.chBMulti.UseVisualStyleBackColor = true;
+            this.chBMulti.CheckedChanged += new System.EventHandler(this.chBMulti_CheckedChanged);
             // 
-            // checkBox3
+            // chBBook
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(138, 29);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(51, 17);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Book";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.chBBook.AutoSize = true;
+            this.chBBook.Checked = true;
+            this.chBBook.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chBBook.Location = new System.Drawing.Point(138, 29);
+            this.chBBook.Name = "chBBook";
+            this.chBBook.Size = new System.Drawing.Size(51, 17);
+            this.chBBook.TabIndex = 2;
+            this.chBBook.Text = "Book";
+            this.chBBook.UseVisualStyleBackColor = true;
+            this.chBBook.CheckedChanged += new System.EventHandler(this.chBBook_CheckedChanged);
             // 
-            // checkBox2
+            // chBAudio
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(79, 29);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(53, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Audio";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.chBAudio.AutoSize = true;
+            this.chBAudio.Checked = true;
+            this.chBAudio.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chBAudio.Location = new System.Drawing.Point(79, 29);
+            this.chBAudio.Name = "chBAudio";
+            this.chBAudio.Size = new System.Drawing.Size(53, 17);
+            this.chBAudio.TabIndex = 1;
+            this.chBAudio.Text = "Audio";
+            this.chBAudio.UseVisualStyleBackColor = true;
+            this.chBAudio.CheckedChanged += new System.EventHandler(this.chBAudio_CheckedChanged);
             // 
-            // checkBox1
+            // chBArt
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(18, 29);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(55, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Article";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.chBArt.AutoSize = true;
+            this.chBArt.Checked = true;
+            this.chBArt.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chBArt.Location = new System.Drawing.Point(18, 29);
+            this.chBArt.Name = "chBArt";
+            this.chBArt.Size = new System.Drawing.Size(55, 17);
+            this.chBArt.TabIndex = 0;
+            this.chBArt.Text = "Article";
+            this.chBArt.UseVisualStyleBackColor = true;
+            this.chBArt.CheckedChanged += new System.EventHandler(this.chBArt_CheckedChanged);
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtType);
             this.groupBox2.Controls.Add(this.txtAuthor);
             this.groupBox2.Controls.Add(this.chBox_copyrght);
-            this.groupBox2.Controls.Add(this.cbBox_categorie);
             this.groupBox2.Controls.Add(this.txtTitle);
             this.groupBox2.Controls.Add(this.txtID);
             this.groupBox2.Controls.Add(this.button4);
@@ -184,6 +190,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Details";
             // 
+            // txtType
+            // 
+            this.txtType.Enabled = false;
+            this.txtType.Location = new System.Drawing.Point(231, 26);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(141, 20);
+            this.txtType.TabIndex = 11;
+            // 
+            // txtAuthor
+            // 
+            this.txtAuthor.Location = new System.Drawing.Point(66, 72);
+            this.txtAuthor.Name = "txtAuthor";
+            this.txtAuthor.Size = new System.Drawing.Size(99, 20);
+            this.txtAuthor.TabIndex = 10;
+            // 
             // chBox_copyrght
             // 
             this.chBox_copyrght.AutoSize = true;
@@ -195,17 +216,9 @@
             this.chBox_copyrght.Text = "Copyright";
             this.chBox_copyrght.UseVisualStyleBackColor = true;
             // 
-            // cbBox_categorie
-            // 
-            this.cbBox_categorie.FormattingEnabled = true;
-            this.cbBox_categorie.Location = new System.Drawing.Point(232, 75);
-            this.cbBox_categorie.Name = "cbBox_categorie";
-            this.cbBox_categorie.Size = new System.Drawing.Size(141, 21);
-            this.cbBox_categorie.TabIndex = 8;
-            // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(231, 27);
+            this.txtTitle.Location = new System.Drawing.Point(231, 72);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(142, 20);
             this.txtTitle.TabIndex = 7;
@@ -229,7 +242,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(188, 75);
+            this.label4.Location = new System.Drawing.Point(192, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(37, 13);
             this.label4.TabIndex = 3;
@@ -247,7 +260,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(192, 29);
+            this.label2.Location = new System.Drawing.Point(192, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 1;
@@ -292,13 +305,6 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
-            // txtAuthor
-            // 
-            this.txtAuthor.Location = new System.Drawing.Point(66, 72);
-            this.txtAuthor.Name = "txtAuthor";
-            this.txtAuthor.Size = new System.Drawing.Size(99, 20);
-            this.txtAuthor.TabIndex = 10;
-            // 
             // View_mdtq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -327,14 +333,13 @@
         private System.Windows.Forms.ListView grdDocs;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chBAll;
+        private System.Windows.Forms.CheckBox chBVideo;
+        private System.Windows.Forms.CheckBox chBMulti;
+        private System.Windows.Forms.CheckBox chBBook;
+        private System.Windows.Forms.CheckBox chBAudio;
+        private System.Windows.Forms.CheckBox chBArt;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox cbBox_categorie;
         private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Button button4;
@@ -347,5 +352,6 @@
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.CheckBox chBox_copyrght;
         private System.Windows.Forms.TextBox txtAuthor;
+        private System.Windows.Forms.TextBox txtType;
     }
 }

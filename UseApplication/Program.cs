@@ -19,11 +19,12 @@ namespace UseApplication
         static void Main()
         {
             Mediatheque m = new Mediatheque();
-            m.AddDocument(new Document("NAM1SPT","SuperTitle1", new Author("Name 1", "Firstname 1"), true));
-            m.AddDocument(new Document("NAM2TES","Test", new Author("Name 2", "Firstname 2"), false));
-            m.AddDocument(new Text("TXT3TP", "SuperText", new Author("bla", "bli"), true));
-            m.AllDocuments[0].serialize(@"testSerial.med");
-            m.AddDocument(m.AllDocuments[0].deSerialize(@"testSerial.med"));
+            m.AddDocument(new Audio("NAM1SPT","SuperTitle1", new Author("Name 1", "Firstname 1"), true,500));
+            m.AddDocument(new Video("NAM2TES","Test", new Author("Name 2", "Firstname 2"), false,600));
+            m.AddDocument(new Document("TXT3TP", "SuperText", new Author("bla", "bli"), true));
+            m.AddDocument(new Audio("Regarde", "Comme je suis", new Author("trop", "fort"), true, 700));
+            m.AddDocument(new Video("hein", "hein", new Author("hein", "hein?"), false, 600));
+            
 
             View_mdtq view = new View_mdtq();
             view.Visible = false;

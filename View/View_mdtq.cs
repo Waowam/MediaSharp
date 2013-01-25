@@ -46,6 +46,73 @@ namespace MediaSharp.View
            
         }
 
+        private void chBAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chBAll.Checked == true)
+            {
+                this.controler.LoadView();
+                this.chBArt.Checked = true;
+                this.chBAudio.Checked = true;
+                this.chBBook.Checked = true; 
+                this.chBMulti.Checked = true;
+                this.chBVideo.Checked = true;
+            }
+        }
+
+        private void chBArt_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!chBArt.Checked)
+            {
+                chBAll.Checked = false;
+                this.controler.RemoveAllDocumentWithType(chBArt.Text);
+            }
+            else
+                this.controler.AddAllDocumentWithType(chBArt.Text);
+        }
+
+        private void chBAudio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!chBAudio.Checked)
+            {
+                chBAll.Checked = false;
+                this.controler.RemoveAllDocumentWithType(chBAudio.Text);
+            }
+            else
+                this.controler.AddAllDocumentWithType(chBAudio.Text);
+        }
+
+        private void chBBook_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!chBBook.Checked)
+            {
+                chBAll.Checked = false;
+                this.controler.RemoveAllDocumentWithType(chBBook.Text);
+            }
+            else
+                this.controler.AddAllDocumentWithType(chBBook.Text);
+        }
+
+        private void chBMulti_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!chBMulti.Checked)
+            {
+                chBAll.Checked = false;
+                this.controler.RemoveAllDocumentWithType(chBMulti.Text);
+            }
+            else
+                this.controler.AddAllDocumentWithType(chBMulti.Text);
+        }
+
+        private void chBVideo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!chBVideo.Checked)
+            {
+                chBAll.Checked = false;
+                this.controler.RemoveAllDocumentWithType(chBVideo.Text);
+            }
+            else
+                this.controler.AddAllDocumentWithType(chBVideo.Text);
+        }
 
         #endregion
 
@@ -62,10 +129,11 @@ namespace MediaSharp.View
             // Define columns in grid
             this.grdDocs.Columns.Clear();
 
-            this.grdDocs.Columns.Add("ID", 150, HorizontalAlignment.Left);
+            this.grdDocs.Columns.Add("ID", 70, HorizontalAlignment.Left);
+            this.grdDocs.Columns.Add("Type",70, HorizontalAlignment.Left);
             this.grdDocs.Columns.Add("Title", 150, HorizontalAlignment.Left);
             this.grdDocs.Columns.Add("Author", 150, HorizontalAlignment.Left);
-            this.grdDocs.Columns.Add("Copyright", 150, HorizontalAlignment.Left);
+            this.grdDocs.Columns.Add("Copyright", 50, HorizontalAlignment.Left);
 
             Console.WriteLine(this.grdDocs.Columns.Count);
             // Add rows to grid
@@ -74,11 +142,16 @@ namespace MediaSharp.View
 
         public void AddDocumentToGrid(Document doc) 
         {
-            ListViewItem parent;
-            parent = this.grdDocs.Items.Add(doc.ID);
-            parent.SubItems.Add(doc.Title);
-            parent.SubItems.Add(doc.Author);
-            parent.SubItems.Add(doc.Copyright);
+            if (!this.grdDocs.Items.ContainsKey(doc.ID))
+            {
+                ListViewItem parent;
+                parent = this.grdDocs.Items.Add(doc.ID);
+                parent.SubItems.Add(doc.GetType().ToString().Split('.')[2]);
+                parent.SubItems.Add(doc.Title);
+                parent.SubItems.Add(doc.Author);
+                parent.SubItems.Add(doc.Copyright);
+                parent.Name = doc.ID;
+            }
         }
 
         public void UpdateGridWithChangedDocument(Document doc)
@@ -96,9 +169,9 @@ namespace MediaSharp.View
             if (rowToUpdate != null)
             {
                 rowToUpdate.Text = doc.ID;
-                rowToUpdate.SubItems[1].Text = doc.Title;
-                rowToUpdate.SubItems[2].Text = doc.Author;
-                rowToUpdate.SubItems[3].Text = doc.Copyright;
+                rowToUpdate.SubItems[2].Text = doc.Title;
+                rowToUpdate.SubItems[3].Text = doc.Author;
+                rowToUpdate.SubItems[4].Text = doc.Copyright;
             }
         }
 
@@ -131,6 +204,7 @@ namespace MediaSharp.View
 
         public void SetSelectedDocumentInGrid(Document doc)
         {
+            Console.WriteLine(doc.GetType());
             foreach (ListViewItem row in this.grdDocs.Items)
             {
                 if (row.Text == doc.ID)
@@ -158,6 +232,11 @@ namespace MediaSharp.View
             set { this.txtID.Text = value; } 
         }
 
+        public string Type
+        {
+            set { this.txtType.Text = value; }
+        }
+
         public string Copyright
         {
             get { return this.chBox_copyrght.CheckState == CheckState.Checked ? "true" : "false"; }
@@ -175,7 +254,7 @@ namespace MediaSharp.View
             set { this.txtID.Enabled = value; }
         }
 
-        #endregion
 
+        #endregion      
     }
 }
