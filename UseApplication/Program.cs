@@ -29,10 +29,10 @@ namespace UseApplication
             m.AddDocument(new Audio("Regarde", "Comme je suis", new Author("trop", "fort"), true, 700));
             m.AddDocument(new Video("hein", "hein", new Author("hein", "hein?"), false, 600));
             
-            /****Serialization test - START*****/ //Works only with "Document", currently working on making it works with derived types...
-            /*UseApplication.Program.SerializeToXML(m);
+            /****Serialization test - START*****/ 
+            UseApplication.Program.SerializeToXML(m);
 
-            Mediatheque mCpy = UseApplication.Program.DeserializeFromXML();*/
+            Mediatheque mCpy = UseApplication.Program.DeserializeFromXML();
             /****Serialization test - END*****/
 
             View_mdtq view = new View_mdtq();
@@ -46,8 +46,15 @@ namespace UseApplication
 
         static public void SerializeToXML(Mediatheque mediatheque)
         {
+            Type[] extraTypes = new Type[5];
+                extraTypes[0] = typeof(Article);
+                extraTypes[1] = typeof(Audio);
+                extraTypes[2] = typeof(Book);
+                extraTypes[3] = typeof(Multimedia);
+                extraTypes[4] = typeof(Video);
+
             FileStream fsOverwrite = new FileStream("Document.xml", FileMode.Create);
-            XmlSerializer serializer = new XmlSerializer(typeof(Mediatheque));
+            XmlSerializer serializer = new XmlSerializer(typeof(Mediatheque), extraTypes);
             TextWriter textWriter = new StreamWriter(fsOverwrite);
             try
             {
@@ -62,7 +69,14 @@ namespace UseApplication
 
         static Mediatheque DeserializeFromXML()
         {
-            XmlSerializer deserializer = new XmlSerializer(typeof(Mediatheque));
+            Type[] extraTypes = new Type[5];
+                extraTypes[0] = typeof(Article);
+                extraTypes[1] = typeof(Audio);
+                extraTypes[2] = typeof(Book);
+                extraTypes[3] = typeof(Multimedia);
+                extraTypes[4] = typeof(Video);
+
+            XmlSerializer deserializer = new XmlSerializer(typeof(Mediatheque), extraTypes);
             TextReader textReader = new StreamReader("Document.xml", true);
             Mediatheque mediatheque;
             try
