@@ -42,21 +42,31 @@ namespace MediaSharp.Controller
             view.SetSelectedDocumentInGrid((Document)Model.AllDocuments[0]);
         }
 
-        public void RemoveAllDocumentWithType(string type)
+        public void RemoveAllDocumentWithType(string t)
         {
-            foreach (Document doc in Model.AllDocuments)
+            /*foreach (Document doc in Model.AllDocuments)
             {
                 if(doc.GetType().ToString().Split('.')[2] == type)
                     view.RemoveDocumentFromGrid(doc);
+            }*/
+            List<Document> listOfDocs = Model.GetDocument(Type.GetType(t));
+            foreach (Document doc in listOfDocs)
+            {
+                view.RemoveDocumentFromGrid(doc);
             }
         }
 
-        public void AddAllDocumentWithType(string type)
+        public void AddAllDocumentWithType(string t)
         {
-            foreach (Document doc in Model.AllDocuments)
+            /*foreach (Document doc in Model.AllDocuments)
             {
                 if (doc.GetType().ToString().Split('.')[2] == type)
                     view.AddDocumentToGrid(doc);
+            }*/
+            List<Document> listOfDocs = Model.GetDocument(Type.GetType(t));
+            foreach (Document doc in listOfDocs)
+            {
+                view.AddDocumentToGrid(doc);
             }
         }
 

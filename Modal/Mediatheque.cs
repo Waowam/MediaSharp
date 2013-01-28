@@ -51,48 +51,12 @@ namespace MediaSharp.Model
             }
         }
 
-        public List<Document> GetAudio()
+        public List<Document> GetDocument(Type t)
         {
-            List<Document> resAudio = new List<Document>();
-            foreach (Document d in AllDocuments)
-            {
-                if (d is Audio)
-                    resAudio.Add(d);
-            }
-            return resAudio;
-        }
-
-        public List<Document> GetVideo()
-        {
-            List<Document> resAudio = new List<Document>();
-            foreach (Document d in AllDocuments)
-            {
-                if (d is Video)
-                    resAudio.Add(d);
-            }
-            return resAudio;
-        }
-
-        public List<Document> GetText()
-        {
-            List<Document> resAudio = new List<Document>();
-            foreach (Document d in AllDocuments)
-            {
-                if (d is Text)
-                    resAudio.Add(d);
-            }
-            return resAudio;
-        }
-
-        public List<Document> GetMultimedia()
-        {
-            List<Document> resAudio = new List<Document>();
-            foreach (Document d in AllDocuments)
-            {
-                if (d is Audio)
-                    resAudio.Add(d);
-            }
-            return resAudio;
+            var selectRes = from d in AllDocuments where d.GetType() == t select d;
+            List<Document> res = new List<Document>();
+            foreach (Document doc in selectRes) { res.Add(doc); }
+            return res;
         }
         #endregion
     }
