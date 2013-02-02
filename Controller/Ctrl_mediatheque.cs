@@ -106,30 +106,64 @@ namespace MediaSharp.Controller
          * 4 : editor
          * 5 : publication year
          * -- Article --
-         * 4 : review name
+         * 4 : review title
+         * 5 : review editor
+         * 6 : review number
          * -- Multimedia --
          * Chaud du zboob
          */
         public void AddNewDocument(string[] tabInfos)
         {
             Random rand = new Random();
-            string generatedId = "" + Model.AllDocuments.Count + tabInfos[0].Substring(0, 3) + rand.Next(100) ;
-            bool copyR = tabInfos[2].Equals("true");
-            string[] authName = tabInfos[1].Split(' ');
-            Author auth = new Author(authName[0], authName[1]);
+            /***INFOS DOCUMENT***/
+            string generatedId = "" + Model.AllDocuments.Count + tabInfos[0].Substring(0, 3) + rand.Next(100) ; //ID auto générée
+            bool copyR = tabInfos[2].Equals("true"); //Copyright
+            string[] authName = tabInfos[1].Split(' '); //Nom et Prénom de l'auteur
+            Author auth = new Author(authName[0], authName[1]); //Auteur du document
             Document newDoc;
+
             switch (tabInfos[3])
             {
-                case "Audio":
-                    int duration;
-                    bool parsed = Int32.TryParse(tabInfos[4], out duration);
-                    if (parsed)
-                        newDoc = new Audio(generatedId, tabInfos[0], auth, copyR, duration);
+                case "Audio": /***INFOS AUDIO***/
+                    int durationAudio;
+                    bool parsedAudio = Int32.TryParse(tabInfos[4], out durationAudio);
+                    if (parsedAudio)
+                    {
+                        newDoc = new Audio(generatedId, tabInfos[0], auth, copyR, durationAudio);
+                        this.updateViewDetailValues(newDoc);
+                    }
+                    break;
+                case "Video": /***INFOS VIDEO***/
+                    int durationVideo;
+                    bool parsedVideo = Int32.TryParse(tabInfos[4], out durationVideo);
+                    if (parsedVideo)
+                    {
+                        newDoc = new Video(generatedId, tabInfos[0], auth, copyR, durationVideo);
+                        this.updateViewDetailValues(newDoc);
+                    }
+                    break;
+                case "Book": /***INFOS BOOK***/
+                    int pubYear;
+                    bool parsedYear = Int32.TryParse(tabInfos[5], out pubYear);
+                    if (parsedYear)
+                    {
+                        newDoc = new Book(generatedId, tabInfos[0], auth, copyR, tabInfos[4], pubYear);
+                        this.updateViewDetailValues(newDoc);
+                    }
+                    break;
+                case "Article": /***INFOS ARTICLE***/
+                    Review review = new Review(tabInfos[4], tabInfos[5], tabInfos[6]);
+                    newDoc = new Article(generatedId, tabInfos[0], auth, copyR, review);
+                    this.updateViewDetailValues(newDoc);
+                    break;
+                case "Multimedia":
+
+                    break;
+                default:
+                    newDoc = new Document();
+                    this.updateViewDetailValues(newDoc);
                     break;
             }
-            selectedDoc = new Document();
-
-            this.updateViewDetailValues(selectedDoc);
             this.view.CanModifyID = true;
         }
 

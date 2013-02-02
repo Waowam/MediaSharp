@@ -15,5 +15,20 @@ namespace MediaSharp.Model
 
         public string Number { get; set; }
         #endregion
+        #region CONSTRUCTORS
+        public Review(string t, string e, string n)
+        {
+            Title = t;
+            Editor = e;
+            Number = n;
+        }
+
+        public Review()
+        {
+            Title = "NoTitle";
+            Editor = "Unknown";
+            Number = "";
+        }
+        #endregion
     }
 }
