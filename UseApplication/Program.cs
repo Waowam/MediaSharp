@@ -38,7 +38,6 @@ namespace UseApplication
             View_mdtq view = new View_mdtq();
             view.Visible = false;
 
-            //Ctrl_mediatheque controller = new Ctrl_mediatheque(mCpy, view);
             Ctrl_mediatheque controller = new Ctrl_mediatheque(m, view);
             controller.LoadView();
             view.ShowDialog();

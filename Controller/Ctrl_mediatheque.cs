@@ -44,11 +44,6 @@ namespace MediaSharp.Controller
 
         public void RemoveAllDocumentWithType(string t)
         {
-            /*foreach (Document doc in Model.AllDocuments)
-            {
-                if(doc.GetType().ToString().Split('.')[2] == type)
-                    view.RemoveDocumentFromGrid(doc);
-            }*/
             List<Document> listOfDocs = Model.GetDocument(Type.GetType(t));
             foreach (Document doc in listOfDocs)
             {
@@ -58,11 +53,6 @@ namespace MediaSharp.Controller
 
         public void AddAllDocumentWithType(string t)
         {
-            /*foreach (Document doc in Model.AllDocuments)
-            {
-                if (doc.GetType().ToString().Split('.')[2] == type)
-                    view.AddDocumentToGrid(doc);
-            }*/
             List<Document> listOfDocs = Model.GetDocument(Type.GetType(t));
             foreach (Document doc in listOfDocs)
             {
@@ -105,9 +95,38 @@ namespace MediaSharp.Controller
             }
         }
 
-
-        public void AddNewDocument()
+        /* TabInfos[i] for i =
+         * 0 : Title of the document
+         * 1 : Author name and surname
+         * 2 : Copyright
+         * 3 : Type
+         * -- Audio & Video --
+         * 4 : duration
+         * -- Book --
+         * 4 : editor
+         * 5 : publication year
+         * -- Article --
+         * 4 : review name
+         * -- Multimedia --
+         * Chaud du zboob
+         */
+        public void AddNewDocument(string[] tabInfos)
         {
+            Random rand = new Random();
+            string generatedId = "" + Model.AllDocuments.Count + tabInfos[0].Substring(0, 3) + rand.Next(100) ;
+            bool copyR = tabInfos[2].Equals("true");
+            string[] authName = tabInfos[1].Split(' ');
+            Author auth = new Author(authName[0], authName[1]);
+            Document newDoc;
+            switch (tabInfos[3])
+            {
+                case "Audio":
+                    int duration;
+                    bool parsed = Int32.TryParse(tabInfos[4], out duration);
+                    if (parsed)
+                        newDoc = new Audio(generatedId, tabInfos[0], auth, copyR, duration);
+                    break;
+            }
             selectedDoc = new Document();
 
             this.updateViewDetailValues(selectedDoc);
@@ -147,16 +166,16 @@ namespace MediaSharp.Controller
         public void Save()
         {
             updateDocumentWithViewValues(selectedDoc);
-            if (!Model.AllDocuments.Contains(selectedDoc))
+            if (Model.AllDocuments.Contains(selectedDoc))
+            {
+                // Update existing
+                this.view.UpdateGridWithChangedDocument(selectedDoc);
+            }
+            else
             {
                 // Add new user
                 Model.AddDocument(selectedDoc);
                 this.view.AddDocumentToGrid(selectedDoc);
-            }
-            else
-            {
-                // Update existing
-                this.view.UpdateGridWithChangedDocument(selectedDoc);
             }
             view.SetSelectedDocumentInGrid(selectedDoc);
             this.view.CanModifyID = false;
