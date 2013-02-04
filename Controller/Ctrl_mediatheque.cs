@@ -78,6 +78,28 @@ namespace MediaSharp.Controller
             doc.Title = view.Title;
             doc.Author = view.Author;
             doc.Copyright = view.Copyright;
+            string type = doc.GetType().Name;
+            switch (type)
+            {
+                case "Audio": /***INFOS AUDIO***/
+
+                    break;
+                case "Video": /***INFOS VIDEO***/
+
+                    break;
+                case "Book": /***INFOS BOOK***/
+
+                    break;
+                case "Article": /***INFOS ARTICLE***/
+
+                    break;
+                case "Multimedia":
+
+                    break;
+                default:
+
+                    break;
+            }
         }
 
         public void SelectedDocumentChanged(string selectedDocId)
@@ -110,7 +132,7 @@ namespace MediaSharp.Controller
          * 5 : review editor
          * 6 : review number
          * -- Multimedia --
-         * Chaud du zboob
+         * 
          */
         public void AddNewDocument(string[] tabInfos)
         {
