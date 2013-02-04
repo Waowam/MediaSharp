@@ -44,7 +44,7 @@ namespace MediaSharp.Controller
 
         public void RemoveAllDocumentWithType(string t)
         {
-            List<Document> listOfDocs = Model.GetDocument(Type.GetType(t));
+            List<Document> listOfDocs = Model.GetDocument(Type.GetType(t)); //Marche pas?
             foreach (Document doc in listOfDocs)
             {
                 view.RemoveDocumentFromGrid(doc);
@@ -66,7 +66,8 @@ namespace MediaSharp.Controller
             //Vue de detail a realisé
             view.ID = doc.ID;
             view.Title = doc.Title;
-            view.Type = doc.GetType().ToString().Split('.')[2];
+            //view.Type = doc.GetType().ToString().Split('.')[2];
+            view.Type = doc.GetType().Name;
             view.Author = doc.Author;
             view.Copyright = doc.Copyright;
 
