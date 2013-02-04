@@ -92,6 +92,7 @@ namespace View
             infos.Add(txtTitle.Text);
             infos.Add(txtAuthor.Text);
             infos.Add("false");
+            infos.Add(cbBType.SelectedItem.ToString());
             //Will make the tab contain the info of the document switch the type
             switch (cbBType.SelectedItem.ToString())
             {
