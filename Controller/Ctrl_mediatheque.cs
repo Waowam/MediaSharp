@@ -83,7 +83,7 @@ namespace MediaSharp.Controller
             switch (type)
             {
                 case "Audio": /***INFOS AUDIO***/
-
+                    
                     break;
                 case "Video": /***INFOS VIDEO***/
 
@@ -150,24 +150,14 @@ namespace MediaSharp.Controller
             switch (tabInfos[3])
             {
                 case "Audio": /***INFOS AUDIO***/
-                    int durationAudio;
-                    bool parsedAudio = Int32.TryParse(tabInfos[4], out durationAudio);
-                    if (parsedAudio)
-                    {
-                        newDoc = new Audio(generatedId, tabInfos[0], auth, copyR, durationAudio);
-                        model.AddDocument(newDoc);
-                        this.updateViewDetailValues(newDoc);
-                    }
+                    newDoc = new Audio(generatedId, tabInfos[0], auth, copyR, tabInfos[4]);
+                    model.AddDocument(newDoc);
+                    this.updateViewDetailValues(newDoc);
                     break;
                 case "Video": /***INFOS VIDEO***/
-                    int durationVideo;
-                    bool parsedVideo = Int32.TryParse(tabInfos[4], out durationVideo);
-                    if (parsedVideo)
-                    {
-                        newDoc = new Video(generatedId, tabInfos[0], auth, copyR, durationVideo);
-                        model.AddDocument(newDoc);
-                        this.updateViewDetailValues(newDoc);
-                    }
+                    newDoc = new Video(generatedId, tabInfos[0], auth, copyR, tabInfos[4]);
+                    model.AddDocument(newDoc);
+                    this.updateViewDetailValues(newDoc);
                     break;
                 case "Book": /***INFOS BOOK***/
                     int pubYear;

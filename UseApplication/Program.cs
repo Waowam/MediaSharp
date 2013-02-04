@@ -23,11 +23,11 @@ namespace UseApplication
         static void Main()
         {
             Mediatheque m = new Mediatheque();
-            m.AddDocument(new Audio("NAM1SPT","SuperTitle1", new Author("Name 1", "Firstname 1"), true,500));
-            m.AddDocument(new Video("NAM2TES","Test", new Author("Name 2", "Firstname 2"), false,600));
+            m.AddDocument(new Audio("NAM1SPT","SuperTitle1", new Author("Name 1", "Firstname 1"), true,"00:03:02"));
+            m.AddDocument(new Video("NAM2TES", "Test", new Author("Name 2", "Firstname 2"), false, "00:28:02"));
             m.AddDocument(new Book("TXT3TP", "SuperText", new Author("bla", "bli"), true, "Vi", 2013));
-            m.AddDocument(new Audio("Regarde", "Comme je suis", new Author("trop", "fort"), true, 700));
-            m.AddDocument(new Video("hein", "hein", new Author("hein", "hein?"), false, 600));
+            m.AddDocument(new Audio("Regarde", "Comme je suis", new Author("trop", "fort"), true, "00:02:52"));
+            m.AddDocument(new Video("hein", "hein", new Author("hein", "hein?"), false, "00:43:32"));
             
             /****Serialization test - START*****/ 
             UseApplication.Program.SerializeToXML(m);

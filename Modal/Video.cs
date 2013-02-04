@@ -9,14 +9,14 @@ namespace MediaSharp.Model
     public class Video : Document
     {
         #region SETTERS&GETTERS
-        public int Duration
+        public string Duration
         {
             get;
             set;
         }
         #endregion
         #region CONSTRUCTORS
-        public Video(String i,String t, Author a, bool c, int d) : base(i ,t , a, c)
+        public Video(String i,String t, Author a, bool c, string d) : base(i ,t , a, c)
         {
             Duration = d;
 
@@ -24,7 +24,7 @@ namespace MediaSharp.Model
 
         public Video() : base()
         {
-            Duration = 0;
+            Duration = "00:00:00";
         }
         #endregion
     }
