@@ -145,6 +145,8 @@ namespace MediaSharp.Controller
             Author auth = new Author(authName[0], authName[1]); //Auteur du document
             Document newDoc;
 
+            foreach (string s in tabInfos) { Console.WriteLine(s); }
+
             switch (tabInfos[3])
             {
                 case "Audio": /***INFOS AUDIO***/
@@ -153,6 +155,7 @@ namespace MediaSharp.Controller
                     if (parsedAudio)
                     {
                         newDoc = new Audio(generatedId, tabInfos[0], auth, copyR, durationAudio);
+                        model.AddDocument(newDoc);
                         this.updateViewDetailValues(newDoc);
                     }
                     break;
@@ -162,6 +165,7 @@ namespace MediaSharp.Controller
                     if (parsedVideo)
                     {
                         newDoc = new Video(generatedId, tabInfos[0], auth, copyR, durationVideo);
+                        model.AddDocument(newDoc);
                         this.updateViewDetailValues(newDoc);
                     }
                     break;
@@ -171,12 +175,14 @@ namespace MediaSharp.Controller
                     if (parsedYear)
                     {
                         newDoc = new Book(generatedId, tabInfos[0], auth, copyR, tabInfos[4], pubYear);
+                        model.AddDocument(newDoc);
                         this.updateViewDetailValues(newDoc);
                     }
                     break;
                 case "Article": /***INFOS ARTICLE***/
                     Review review = new Review(tabInfos[4], tabInfos[5], tabInfos[6]);
                     newDoc = new Article(generatedId, tabInfos[0], auth, copyR, review);
+                    model.AddDocument(newDoc);
                     this.updateViewDetailValues(newDoc);
                     break;
                 case "Multimedia":
@@ -184,6 +190,7 @@ namespace MediaSharp.Controller
                     break;
                 default:
                     newDoc = new Document();
+                    model.AddDocument(newDoc);
                     this.updateViewDetailValues(newDoc);
                     break;
             }
