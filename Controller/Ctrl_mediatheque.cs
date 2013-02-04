@@ -157,7 +157,7 @@ namespace MediaSharp.Controller
                     this.updateViewDetailValues(newDoc);
                     break;
                 case "Multimedia":
-
+                    //CHIANT
                     break;
                 default:
                     newDoc = new Document();

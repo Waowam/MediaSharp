@@ -10,12 +10,14 @@ using System.Windows.Forms;
 
 using MediaSharp.Model;
 using MediaSharp.Controller;
+using View;
 
 namespace MediaSharp.View
 {
     public partial class View_mdtq : Form, IDocView
     {
         Ctrl_mediatheque controler;
+        AddForm adding_dialog;
 
         public View_mdtq()
         {
@@ -26,7 +28,9 @@ namespace MediaSharp.View
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            this.controler.AddNewDocument();
+            adding_dialog = new AddForm();
+            adding_dialog.SetController(controler);
+            adding_dialog.ShowDialog();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
