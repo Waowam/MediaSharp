@@ -45,8 +45,10 @@ namespace MediaSharp.Controller
         public void RemoveAllDocumentWithType(string t)
         {
             List<Document> listOfDocs = Model.GetDocument(Type.GetType(t)); //Marche pas?
+            Console.WriteLine(t);
             foreach (Document doc in listOfDocs)
             {
+                Console.WriteLine("Removed all"+t);
                 view.RemoveDocumentFromGrid(doc);
             }
         }
@@ -66,11 +68,9 @@ namespace MediaSharp.Controller
             //Vue de detail a realisé
             view.ID = doc.ID;
             view.Title = doc.Title;
-            //view.Type = doc.GetType().ToString().Split('.')[2];
             view.Type = doc.GetType().Name;
             view.Author = doc.Author;
             view.Copyright = doc.Copyright;
-
         }
 
         private void updateDocumentWithViewValues(Document doc)
@@ -145,8 +145,7 @@ namespace MediaSharp.Controller
             Author auth = new Author(authName[0], authName[1]); //Auteur du document
             Document newDoc;
 
-            foreach (string s in tabInfos) { Console.WriteLine(s); }
-
+            /***INFOS SPECIFIC TO A TYPE***/
             switch (tabInfos[3])
             {
                 case "Audio": /***INFOS AUDIO***/
@@ -185,6 +184,7 @@ namespace MediaSharp.Controller
                     break;
             }
             this.view.CanModifyID = true;
+            LoadView();
         }
 
         public void RemoveDocument()
