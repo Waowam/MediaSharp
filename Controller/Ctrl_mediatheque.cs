@@ -187,6 +187,14 @@ namespace MediaSharp.Controller
             LoadView();
         }
 
+        public void AddNewDocumentBis(Document d)
+        {
+            model.AddDocument(d);
+            this.updateViewDetailValues(d);
+            this.view.CanModifyID = true;
+            LoadView();
+        }
+
         public void RemoveDocument()
         {
             string id = this.view.GetIdOfSelectedDocumentInGrid();

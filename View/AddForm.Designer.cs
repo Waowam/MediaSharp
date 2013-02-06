@@ -29,35 +29,27 @@
         private void InitializeComponent()
         {
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
             this.txtTitle = new System.Windows.Forms.TextBox();
-            this.cbBType = new System.Windows.Forms.ComboBox();
-            this.panelDetails = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAuthor = new System.Windows.Forms.TextBox();
             this.timePicker = new System.Windows.Forms.DateTimePicker();
-            this.panelDetails.SuspendLayout();
+            this.txtReEditor = new System.Windows.Forms.TextBox();
+            this.txtReTitle = new System.Windows.Forms.TextBox();
+            this.spinReviewNumber = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            this.elementHost2 = new System.Windows.Forms.Integration.ElementHost();
+            this.userControl11 = new WpfControlLibrary1.UserControl1();
+            ((System.ComponentModel.ISupportInitialize)(this.spinReviewNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(65, 237);
+            this.btnCancel.Location = new System.Drawing.Point(77, 277);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.Location = new System.Drawing.Point(146, 236);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 1;
-            this.btnAdd.Text = "&Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtTitle
             // 
@@ -70,40 +62,6 @@
             this.txtTitle.Text = "Title of the document";
             this.txtTitle.MouseLeave += new System.EventHandler(this.txtTitle_MouseLeave);
             this.txtTitle.MouseHover += new System.EventHandler(this.txtTitle_MouseHover);
-            // 
-            // cbBType
-            // 
-            this.cbBType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbBType.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.cbBType.FormattingEnabled = true;
-            this.cbBType.Items.AddRange(new object[] {
-            "Article",
-            "Audio",
-            "Book",
-            "Multimedia",
-            "Video"});
-            this.cbBType.Location = new System.Drawing.Point(13, 67);
-            this.cbBType.Name = "cbBType";
-            this.cbBType.Size = new System.Drawing.Size(121, 21);
-            this.cbBType.TabIndex = 3;
-            this.cbBType.Text = "Type of Document";
-            this.cbBType.SelectedIndexChanged += new System.EventHandler(this.cbBType_SelectedIndexChanged);
-            // 
-            // panelDetails
-            // 
-            this.panelDetails.Controls.Add(this.groupBox1);
-            this.panelDetails.Location = new System.Drawing.Point(13, 94);
-            this.panelDetails.Name = "panelDetails";
-            this.panelDetails.Size = new System.Drawing.Size(208, 136);
-            this.panelDetails.TabIndex = 4;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(3, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(196, 133);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
             // 
             // txtAuthor
             // 
@@ -124,23 +82,57 @@
             this.timePicker.Size = new System.Drawing.Size(200, 20);
             this.timePicker.TabIndex = 0;
             // 
+            // txtReEditor
+            // 
+            this.txtReEditor.Location = new System.Drawing.Point(0, 0);
+            this.txtReEditor.Name = "txtReEditor";
+            this.txtReEditor.Size = new System.Drawing.Size(100, 20);
+            this.txtReEditor.TabIndex = 0;
+            // 
+            // txtReTitle
+            // 
+            this.txtReTitle.Location = new System.Drawing.Point(0, 0);
+            this.txtReTitle.Name = "txtReTitle";
+            this.txtReTitle.Size = new System.Drawing.Size(100, 20);
+            this.txtReTitle.TabIndex = 0;
+            // 
+            // spinReviewNumber
+            // 
+            this.spinReviewNumber.Location = new System.Drawing.Point(0, 0);
+            this.spinReviewNumber.Name = "spinReviewNumber";
+            this.spinReviewNumber.Size = new System.Drawing.Size(120, 20);
+            this.spinReviewNumber.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
+            // 
+            // elementHost2
+            // 
+            this.elementHost2.Location = new System.Drawing.Point(2, 64);
+            this.elementHost2.Name = "elementHost2";
+            this.elementHost2.Size = new System.Drawing.Size(224, 207);
+            this.elementHost2.TabIndex = 7;
+            this.elementHost2.Text = "elementHost2";
+            this.elementHost2.Child = this.userControl11;
+            // 
             // AddForm
             // 
-            this.AcceptButton = this.btnAdd;
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(236, 271);
+            this.ClientSize = new System.Drawing.Size(238, 316);
+            this.Controls.Add(this.elementHost2);
             this.Controls.Add(this.txtAuthor);
-            this.Controls.Add(this.panelDetails);
-            this.Controls.Add(this.cbBType);
             this.Controls.Add(this.txtTitle);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
             this.Name = "AddForm";
             this.Text = "addForm";
-            this.panelDetails.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.spinReviewNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,16 +141,14 @@
         #endregion
 
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.ComboBox cbBType;
-        private System.Windows.Forms.Panel panelDetails;
         private System.Windows.Forms.TextBox txtAuthor;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker timePicker;
         private System.Windows.Forms.TextBox txtReEditor;
         private System.Windows.Forms.TextBox txtReTitle;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown spinReviewNumber;
+        private System.Windows.Forms.Integration.ElementHost elementHost2;
+        private WpfControlLibrary1.UserControl1 userControl11;
     }
 }
