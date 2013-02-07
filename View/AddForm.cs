@@ -30,32 +30,32 @@ namespace View
             this.txtAuthor.Text = d.Author;
             this.chkB_CopyR.Checked = (d.Copyright=="true"? true:false);
 
-            switch (d.GetType().ToString())
+            switch (d.GetType().Name)
             {
-                case "MediaSharp.Model.Article" :
+                case "Article" :
                     Article ar = (Article)d;
                     this.userControl11.txt_R_title.Text = ar.Review_title;
                     this.userControl11.txt_E_Name.Text = ar.Review_Editor;
                     this.userControl11.spin_R_numb.Text = ar.Review_Number;
                     this.userControl11.xpder_Article.IsExpanded = true;
                     break;
-                case "MediaSharp.Model.Audio" :
+                case "Audio" :
                     Audio au = (Audio)d;
                     this.userControl11.spin_Minutes_Audio.Value = au.Duration.Minutes;
                     this.userControl11.spin_Secondes_Audio.Value = au.Duration.Secondes;
                     this.userControl11.xpder_Audio.IsExpanded = true;
                     break;
-                case "MediaSharp.Model.Book":
+                case "Book":
                     Book b = (Book)d;
                     this.userControl11.txt_E_Book.Text = b.Editor;
                     this.userControl11.spin_Publication.Text = b.PublicationYear;
                     this.userControl11.xpder_Book.IsExpanded = true;
                     break;
-                case "MediaSharp.Model.Multimedia":
+                case "Multimedia":
                     Multimedia m = (Multimedia)d;
                     //pas fais.
                     break;
-                case "MediaSharp.Model.Video":
+                case "Video":
                     Video v = (Video)d;
                     this.userControl11.spin_Hours_Video.Value = v.Duration.Hours;
                     this.userControl11.spin_Minutes_Video.Value = v.Duration.Minutes;
