@@ -68,7 +68,7 @@ namespace MediaSharp.View
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            this.controler.Save();
+            //A faire ^^
         }
 
         private void grdDocs_SelectedIndexChanged(object sender, EventArgs e)
