@@ -232,12 +232,13 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(298, 102);
+            this.button4.Location = new System.Drawing.Point(277, 102);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.Size = new System.Drawing.Size(96, 23);
             this.button4.TabIndex = 4;
-            this.button4.Text = "More..";
+            this.button4.Text = "Save changes";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // label4
             // 
@@ -281,27 +282,26 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(116, 23);
             this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Add new";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(429, 65);
+            this.btnEdit.Location = new System.Drawing.Point(429, 113);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(116, 23);
             this.btnEdit.TabIndex = 8;
-            this.btnEdit.Text = "Edit";
+            this.btnEdit.Text = "Edit selected";
             this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(429, 94);
+            this.btnRemove.Location = new System.Drawing.Point(431, 77);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(116, 23);
             this.btnRemove.TabIndex = 7;
-            this.btnRemove.Text = "Remove";
+            this.btnRemove.Text = "Remove selected";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 

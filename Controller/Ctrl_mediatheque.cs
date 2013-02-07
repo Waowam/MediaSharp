@@ -44,18 +44,16 @@ namespace MediaSharp.Controller
 
         public void RemoveAllDocumentWithType(string t)
         {
-            List<Document> listOfDocs = Model.GetDocument(Type.GetType(t)); //Marche pas?
-            Console.WriteLine(t);
+            List<Document> listOfDocs = Model.GetDocument(t);
             foreach (Document doc in listOfDocs)
             {
-                Console.WriteLine("Removed all"+t);
                 view.RemoveDocumentFromGrid(doc);
             }
         }
 
         public void AddAllDocumentWithType(string t)
         {
-            List<Document> listOfDocs = Model.GetDocument(Type.GetType(t));
+            List<Document> listOfDocs = Model.GetDocument(t);
             foreach (Document doc in listOfDocs)
             {
                 view.AddDocumentToGrid(doc);
@@ -135,30 +133,30 @@ namespace MediaSharp.Controller
          * -- Multimedia --
          * 
          */
-        public void AddNewDocument(string[] tabInfos)
+        /*public void AddNewDocument(string[] tabInfos)
         {
             Random rand = new Random();
-            /***INFOS DOCUMENT***/
+            //INFOS DOCUMENT
             string generatedId = "" + Model.AllDocuments.Count + tabInfos[0].Substring(0, 3) + rand.Next(100) ; //ID auto générée
             bool copyR = tabInfos[2].Equals("true"); //Copyright
             string[] authName = tabInfos[1].Split(' '); //Nom et Prénom de l'auteur
             Author auth = new Author(authName[0], authName[1]); //Auteur du document
             Document newDoc;
 
-            /***INFOS SPECIFIC TO A TYPE***/
+            //INFOS SPECIFIC TO A TYPE
             switch (tabInfos[3])
             {
-                case "Audio": /***INFOS AUDIO***/
+                case "Audio": //INFOS AUDIO
                     newDoc = new Audio(generatedId, tabInfos[0], auth, copyR, tabInfos[4]);
                     model.AddDocument(newDoc);
                     this.updateViewDetailValues(newDoc);
                     break;
-                case "Video": /***INFOS VIDEO***/
+                case "Video": //INFOS VIDEO
                     newDoc = new Video(generatedId, tabInfos[0], auth, copyR, tabInfos[4]);
                     model.AddDocument(newDoc);
                     this.updateViewDetailValues(newDoc);
                     break;
-                case "Book": /***INFOS BOOK***/
+                case "Book": //INFOS BOOK
                     int pubYear;
                     bool parsedYear = Int32.TryParse(tabInfos[5], out pubYear);
                     if (parsedYear)
@@ -168,7 +166,7 @@ namespace MediaSharp.Controller
                         this.updateViewDetailValues(newDoc);
                     }
                     break;
-                case "Article": /***INFOS ARTICLE***/
+                case "Article": //INFOS ARTICLE
                     Review review = new Review(tabInfos[4], tabInfos[5], tabInfos[6]);
                     newDoc = new Article(generatedId, tabInfos[0], auth, copyR, review);
                     model.AddDocument(newDoc);
@@ -185,7 +183,7 @@ namespace MediaSharp.Controller
             }
             this.view.CanModifyID = true;
             LoadView();
-        }
+        }*/
 
         public void AddNewDocumentBis(Document d)
         {

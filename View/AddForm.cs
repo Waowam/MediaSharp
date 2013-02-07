@@ -22,47 +22,52 @@ namespace View
             InitializeComponent();
         }
 
+        public AddForm(Document d)
+        {
+            InitializeComponent();
+
+            this.txtTitle.Text = d.Title;
+            this.txtAuthor.Text = d.Author;
+            this.chkB_CopyR.Checked = (d.Copyright=="true"? true:false);
+
+            switch (d.GetType().ToString())
+            {
+                case "MediaSharp.Model.Article" :
+                    Article ar = (Article)d;
+                    this.userControl11.txt_R_title.Text = ar.Review_title;
+                    this.userControl11.txt_E_Name.Text = ar.Review_Editor;
+                    this.userControl11.spin_R_numb.Text = ar.Review_Number;
+                    this.userControl11.xpder_Article.IsExpanded = true;
+                    break;
+                case "MediaSharp.Model.Audio" :
+                    Audio au = (Audio)d;
+                    this.userControl11.spin_Minutes_Audio.Value = au.Duration.Minutes;
+                    this.userControl11.spin_Secondes_Audio.Value = au.Duration.Secondes;
+                    this.userControl11.xpder_Audio.IsExpanded = true;
+                    break;
+                case "MediaSharp.Model.Book":
+                    Book b = (Book)d;
+                    this.userControl11.txt_E_Book.Text = b.Editor;
+                    this.userControl11.spin_Publication.Text = b.PublicationYear;
+                    this.userControl11.xpder_Book.IsExpanded = true;
+                    break;
+                case "MediaSharp.Model.Multimedia":
+                    Multimedia m = (Multimedia)d;
+                    //pas fais.
+                    break;
+                case "MediaSharp.Model.Video":
+                    Video v = (Video)d;
+                    this.userControl11.spin_Hours_Video.Value = v.Duration.Hours;
+                    this.userControl11.spin_Minutes_Video.Value = v.Duration.Minutes;
+                    this.userControl11.spin_Secondes_Video.Value = v.Duration.Secondes;
+                    this.userControl11.xpder_Video.IsExpanded = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
         #region Events and stuffs
-
-        private void txtTitle_MouseHover(object sender, EventArgs e)
-        {
-           if (txtTitle.Text == "Title of the document")
-            {
-                txtTitle.Text = "";
-                txtTitle.ForeColor = SystemColors.WindowText;
-                txtTitle.Font = SystemFonts.DefaultFont;
-            }
-        }
-
-        private void txtTitle_MouseLeave(object sender, EventArgs e)
-        {
-            if (txtTitle.Text == "")
-            {
-                txtTitle.Text = "Title of the document";
-                txtTitle.ForeColor = SystemColors.InactiveCaption;
-                txtTitle.Font = SystemFonts.CaptionFont;
-            }
-        }
-
-        private void txtAuthor_MouseHover(object sender, EventArgs e)
-        {
-            if (txtAuthor.Text == "Author of the document")
-            {
-                txtAuthor.Text = "";
-                txtAuthor.ForeColor = SystemColors.WindowText;
-                txtAuthor.Font = SystemFonts.DefaultFont;
-            }
-        }
-
-        private void txtAuthor_MouseLeave(object sender, EventArgs e)
-        {
-            if (txtAuthor.Text == "")
-            {
-                txtAuthor.Text = "Author of the document";
-                txtAuthor.ForeColor = SystemColors.InactiveCaption;
-                txtAuthor.Font = SystemFonts.CaptionFont;
-            }
-        }
 
         void butt_Add_Article_Click(object sender, System.Windows.RoutedEventArgs e)
         {
@@ -86,7 +91,7 @@ namespace View
             string[] authName = this.txtAuthor.Text.Split(' '); //Nom et Prénom de l'auteur
             Author auth = new Author(authName[0], authName[1]); //Auteur du document
 
-            controller.AddNewDocumentBis(new Audio(generatedId, this.txtTitle.Text, auth, copyR, this.userControl11.spin_Minutes_Audio.Text+":"+this.userControl11.spin_Secondes_Audio.Text));
+            controller.AddNewDocumentBis(new Audio(generatedId, this.txtTitle.Text, auth, copyR, (int)this.userControl11.spin_Minutes_Audio.Value,(int)this.userControl11.spin_Secondes_Audio.Value));
             this.Dispose();
         }
 
@@ -112,7 +117,7 @@ namespace View
             string[] authName = this.txtAuthor.Text.Split(' '); //Nom et Prénom de l'auteur
             Author auth = new Author(authName[0], authName[1]); //Auteur du document
 
-            controller.AddNewDocumentBis(new Video(generatedId, this.txtTitle.Text, auth, copyR, this.userControl11.spin_Hours_Video.Text+":"+this.userControl11.spin_Minutes_Video.Text+":"+this.userControl11.spin_Secondes_Video.Text));
+            controller.AddNewDocumentBis(new Video(generatedId, this.txtTitle.Text, auth, copyR, (int)this.userControl11.spin_Hours_Video.Value,(int)this.userControl11.spin_Minutes_Video.Value,(int)this.userControl11.spin_Secondes_Video.Value));
             this.Dispose();
         }
 
@@ -123,7 +128,5 @@ namespace View
         {
             controller = _controller;
         }
-
-
     }
 }

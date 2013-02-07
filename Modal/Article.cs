@@ -15,6 +15,10 @@ namespace MediaSharp.Model
         {
             get { return review.ToString(); }
         }
+
+        public string Review_title { get { return review.Title; } }
+        public string Review_Editor { get { return review.Editor; } }
+        public string Review_Number { get { return review.Number; } }
         #endregion
         #region CONSTRUCTORS
         public Article(String i, String t, Author a, bool c, Review r)

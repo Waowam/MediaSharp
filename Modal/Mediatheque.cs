@@ -51,11 +51,14 @@ namespace MediaSharp.Model
             }
         }
 
-        public List<Document> GetDocument(Type t)
+        public List<Document> GetDocument(string t)
         {
-            var selectRes = from d in AllDocuments where d.GetType() == t select d;
+            Console.WriteLine("I'm in da \"GetDocument\" place ! : param = " + t);
+            var selectRes = from d in AllDocuments where d.GetType().ToString() == t select d;
+            var type = from d in AllDocuments select d.GetType().ToString();
+            foreach (string s in type) { Console.WriteLine("Type des documents : " + s); }
             List<Document> res = new List<Document>();
-            foreach (Document doc in selectRes) { res.Add(doc); }
+            foreach (Document doc in selectRes) { Console.WriteLine("Document selected : " + doc.ToString()); res.Add(doc); }
             return res;
         }
         #endregion

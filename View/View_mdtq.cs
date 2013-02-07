@@ -24,6 +24,34 @@ namespace MediaSharp.View
             InitializeComponent();
         }
 
+        #region Setters/getters spéciaux
+
+        public string chkB_Article
+        {
+            get { return new Article().GetType().ToString(); }
+        }
+
+        public string chkB_Audio
+        {
+            get { return new Audio().GetType().ToString(); }
+        }
+
+        public string chkB_Book
+        {
+            get { return new Book().GetType().ToString(); }
+        }
+
+        public string chkB_Multimedia
+        {
+            get { return new Multimedia().GetType().ToString(); }
+        }
+
+        public string chkB_Video
+        {
+            get { return new Video().GetType().ToString();  }
+        }
+        #endregion
+
         #region Events raised  back to controller
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -68,10 +96,10 @@ namespace MediaSharp.View
             if (!chBArt.Checked)
             {
                 chBAll.Checked = false;
-                this.controler.RemoveAllDocumentWithType(chBArt.Text);
+                this.controler.RemoveAllDocumentWithType(this.chkB_Article);
             }
             else
-                this.controler.AddAllDocumentWithType(chBArt.Text);
+                this.controler.AddAllDocumentWithType(this.chkB_Article);
         }
 
         private void chBAudio_CheckedChanged(object sender, EventArgs e)
@@ -79,10 +107,10 @@ namespace MediaSharp.View
             if (!chBAudio.Checked)
             {
                 chBAll.Checked = false;
-                this.controler.RemoveAllDocumentWithType(chBAudio.Text);
+                this.controler.RemoveAllDocumentWithType(this.chkB_Audio);
             }
             else
-                this.controler.AddAllDocumentWithType(chBAudio.Text);
+                this.controler.AddAllDocumentWithType(this.chkB_Audio);
         }
 
         private void chBBook_CheckedChanged(object sender, EventArgs e)
@@ -90,10 +118,10 @@ namespace MediaSharp.View
             if (!chBBook.Checked)
             {
                 chBAll.Checked = false;
-                this.controler.RemoveAllDocumentWithType(chBBook.Text);
+                this.controler.RemoveAllDocumentWithType(this.chkB_Book);
             }
             else
-                this.controler.AddAllDocumentWithType(chBBook.Text);
+                this.controler.AddAllDocumentWithType(this.chkB_Book);
         }
 
         private void chBMulti_CheckedChanged(object sender, EventArgs e)
@@ -101,10 +129,10 @@ namespace MediaSharp.View
             if (!chBMulti.Checked)
             {
                 chBAll.Checked = false;
-                this.controler.RemoveAllDocumentWithType(chBMulti.Text);
+                this.controler.RemoveAllDocumentWithType(this.chkB_Multimedia);
             }
             else
-                this.controler.AddAllDocumentWithType(chBMulti.Text);
+                this.controler.AddAllDocumentWithType(this.chkB_Multimedia);
         }
 
         private void chBVideo_CheckedChanged(object sender, EventArgs e)
@@ -112,10 +140,10 @@ namespace MediaSharp.View
             if (!chBVideo.Checked)
             {
                 chBAll.Checked = false;
-                this.controler.RemoveAllDocumentWithType(chBVideo.Text);
+                this.controler.RemoveAllDocumentWithType(this.chkB_Video);
             }
             else
-                this.controler.AddAllDocumentWithType(chBVideo.Text);
+                this.controler.AddAllDocumentWithType(this.chkB_Video);
         }
 
         #endregion
@@ -260,5 +288,6 @@ namespace MediaSharp.View
 
 
         #endregion      
+
     }
 }

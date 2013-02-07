@@ -8,24 +8,25 @@ namespace MediaSharp.Model
 {
     public class Audio : Document
     {
+
         #region SETTERS&GETTERS
-        public string Duration
+        public Duration Duration
         {
             get;
             set;
         }
         #endregion
         #region CONSTRUCTORS
-        public Audio(String i, String t, Author a, bool c, string d)
+        public Audio(String i, String t, Author a, bool c,int m,int s)
             : base(i,t, a, c)
         {
-            Duration = d;
+            Duration = new Duration(0,m,s);
 
         }
 
         public Audio() : base()
         {
-            Duration = "00:00:00";
+            Duration = new Duration(00,00,00);
         }
         #endregion
     }
