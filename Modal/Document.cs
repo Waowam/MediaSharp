@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MediaSharp.Model
 {
-    public class Document
+    [Serializable()]
+    public class Document : ISerializable
     {
         private Author author;
         private bool copyright;
@@ -52,6 +54,23 @@ namespace MediaSharp.Model
             Title = "Sans titre";
             author = new Author();//Faut trouvé un moyen d'init mais pas a null
             copyright = false;
+        }
+        #endregion
+        #region Special serialization
+        public Document(SerializationInfo info, StreamingContext ctxt)
+        {
+            this.ID = (string)info.GetValue("ID", typeof(string));
+            this.Title = (string)info.GetValue("Title", typeof(string));
+            this.Author = (string)info.GetValue("Author", typeof(string));
+            this.Copyright = (string)info.GetValue("Copyright", typeof(string));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        {
+            info.AddValue("ID", this.ID);
+            info.AddValue("Title", this.Title);
+            info.AddValue("Author", this.Author);
+            info.AddValue("Copyright", this.Copyright);
         }
         #endregion
         #region METHODS

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MediaSharp.Model
 {
-    public class Mediatheque
+    [Serializable()]
+    public class Mediatheque : ISerializable
     {
         #region SETTERS&GETTERS
         public List<Document> AllDocuments { get; set; }
@@ -29,6 +31,17 @@ namespace MediaSharp.Model
             {
                 AllDocuments.Add(doc);
             }
+        }
+        #endregion
+        #region Special serialization
+        public Mediatheque(SerializationInfo info, StreamingContext ctxt)
+        {
+            this.AllDocuments = (List<Document>)info.GetValue("Documents", typeof(List<Document>));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        {
+            info.AddValue("Documents", this.AllDocuments);
         }
         #endregion
         #region METHODS

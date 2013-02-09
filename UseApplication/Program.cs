@@ -11,6 +11,7 @@ using MediaSharp.View;
 using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace UseApplication
 {
@@ -30,9 +31,13 @@ namespace UseApplication
             m.AddDocument(new Video("hein", "hein", new Author("hein", "hein?"), false,0,43,32));
             
             /****Serialization test - START*****/ 
+            /* //XML version
             UseApplication.Program.SerializeToXML(m);
 
-            Mediatheque mCpy = UseApplication.Program.DeserializeFromXML();
+            Mediatheque mCpy = UseApplication.Program.DeserializeFromXML();*/
+            UseApplication.Program.SerializeObject("outputFile.txt", m);
+
+            Mediatheque mCpy = UseApplication.Program.DeSerializeObject("outputFile.txt");
             /****Serialization test - END*****/
 
             View_mdtq view = new View_mdtq();
@@ -41,6 +46,24 @@ namespace UseApplication
             Ctrl_mediatheque controller = new Ctrl_mediatheque(m, view);
             controller.LoadView();
             view.ShowDialog();
+        }
+
+        public void SerializeObject(string filename, Mediatheque objectToSerialize)
+        {
+            Stream stream = File.Open(filename, FileMode.Create);
+            BinaryFormatter bFormatter = new BinaryFormatter();
+            bFormatter.Serialize(stream, objectToSerialize);
+            stream.Close();
+        }
+
+        public Mediatheque DeSerializeObject(string filename)
+        {
+            Mediatheque objectToSerialize;
+            Stream stream = File.Open(filename, FileMode.Open);
+            BinaryFormatter bFormatter = new BinaryFormatter();
+            objectToSerialize = (Mediatheque)bFormatter.Deserialize(stream);
+            stream.Close();
+            return objectToSerialize;
         }
 
         static public void SerializeToXML(Mediatheque mediatheque)

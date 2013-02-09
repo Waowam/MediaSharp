@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MediaSharp.Model
 {
-    public class Book : Text
+    [Serializable()]
+    public class Book : Text, ISerializable
     {
         private int publicationYear;
 
@@ -31,6 +33,19 @@ namespace MediaSharp.Model
         {
             Editor = "";
             publicationYear = 0;
+        }
+        #endregion
+        #region Special serialization
+        public Book(SerializationInfo info, StreamingContext ctxt)
+        {
+            this.Editor = (string)info.GetValue("Editor", typeof(string));
+            this.publicationYear = (int)info.GetValue("PublicationYear", typeof(int));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        {
+            info.AddValue("Editor", this.Editor);
+            info.AddValue("PublicationYear", this.publicationYear);
         }
         #endregion
     }

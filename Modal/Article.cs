@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MediaSharp.Model
 {
-    public class Article : Text
+    [Serializable()]
+    public class Article : Text, ISerializable
     {
         private Review review;
 
@@ -31,6 +33,17 @@ namespace MediaSharp.Model
             : base()
         {
             review = null;
+        }
+        #endregion
+        #region Special serialization
+        public Article(SerializationInfo info, StreamingContext ctxt)
+        {
+            this.review = (Review)info.GetValue("Review", typeof(Review));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        {
+            info.AddValue("Review", this.review);
         }
         #endregion
     }

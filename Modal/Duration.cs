@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MediaSharp.Model
 {
-    public class Duration
+    [Serializable()]
+    public class Duration, ISerializable
     {
         private int hours;
         private int minutes;
@@ -30,6 +32,21 @@ namespace MediaSharp.Model
             Hours = 0;
             Minutes = 0;
             Secondes = 0;
+        }
+        #endregion
+        #region Special serialization
+        public Duration (SerializationInfo info, StreamingContext ctxt)
+        {
+            this.Hours = (int)info.GetValue("Hours", typeof(int));
+            this.Minutes = (int)info.GetValue("Minutes", typeof(int));
+            this.Secondes = (int)info.GetValue("Secondes", typeof(int));
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        {
+            info.AddValue("Hours", this.Hours);
+            info.AddValue("Minutes", this.Minutes);
+            info.AddValue("Secondes", this.Secondes);
         }
         #endregion
 

@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MediaSharp.Model
 {
-    public class Text : Document
+    [Serializable()]
+    public class Text : Document, ISerializable
     {
         #region METHODS
         public string Print()
@@ -23,6 +25,17 @@ namespace MediaSharp.Model
 
         public Text() : base()
         {
+        }
+        #endregion
+        #region Special serialization
+        public Text(SerializationInfo info, StreamingContext ctxt)
+        {
+          
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        {
+            
         }
         #endregion
     }
