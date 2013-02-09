@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MediaSharp.Model
 {
     [Serializable()]
-    public class Book : Text, ISerializable
+    public class Book : Text
     {
         private int publicationYear;
 

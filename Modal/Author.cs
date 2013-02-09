@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MediaSharp.Model
 {
     [Serializable()]
-    public class Author, ISerializable
+    public class Author
     {
         #region SETTERS&GETTERS
         public string Name { get; set; }

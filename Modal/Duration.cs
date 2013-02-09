@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MediaSharp.Model
 {
     [Serializable()]
-    public class Duration, ISerializable
+    public class Duration
     {
         private int hours;
         private int minutes;

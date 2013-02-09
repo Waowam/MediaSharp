@@ -35,34 +35,46 @@ namespace UseApplication
             UseApplication.Program.SerializeToXML(m);
 
             Mediatheque mCpy = UseApplication.Program.DeserializeFromXML();*/
-            UseApplication.Program.SerializeObject("outputFile.txt", m);
+            UseApplication.Program.SerializeObject(m);
 
-            Mediatheque mCpy = UseApplication.Program.DeSerializeObject("outputFile.txt");
+            Mediatheque mCpy = UseApplication.Program.DeSerializeObject();
             /****Serialization test - END*****/
 
             View_mdtq view = new View_mdtq();
             view.Visible = false;
 
-            Ctrl_mediatheque controller = new Ctrl_mediatheque(m, view);
+            Ctrl_mediatheque controller = new Ctrl_mediatheque(mCpy, view);
             controller.LoadView();
             view.ShowDialog();
         }
 
-        public void SerializeObject(string filename, Mediatheque objectToSerialize)
+        static public void SerializeObject(Mediatheque objectToSerialize)
         {
-            Stream stream = File.Open(filename, FileMode.Create);
+            Stream stream = File.Open("Mediatheque.dat", FileMode.Create);
             BinaryFormatter bFormatter = new BinaryFormatter();
-            bFormatter.Serialize(stream, objectToSerialize);
-            stream.Close();
+            try
+            {
+                bFormatter.Serialize(stream, objectToSerialize);
+            }
+            finally
+            {
+                stream.Close();
+            }
         }
 
-        public Mediatheque DeSerializeObject(string filename)
+        static public Mediatheque DeSerializeObject()
         {
             Mediatheque objectToSerialize;
-            Stream stream = File.Open(filename, FileMode.Open);
+            Stream stream = File.Open("Mediatheque.dat", FileMode.Open);
             BinaryFormatter bFormatter = new BinaryFormatter();
-            objectToSerialize = (Mediatheque)bFormatter.Deserialize(stream);
-            stream.Close();
+            try
+            {
+                objectToSerialize = (Mediatheque)bFormatter.Deserialize(stream);
+            }
+            finally
+            {
+                stream.Close();
+            }
             return objectToSerialize;
         }
 

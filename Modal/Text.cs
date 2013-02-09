@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MediaSharp.Model
 {
     [Serializable()]
-    public class Text : Document, ISerializable
+    public class Text : Document
     {
         #region METHODS
         public string Print()
