@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MediaSharp.Model
 {
     [Serializable()]
-    public class Duration
+    public class Duration : ISerializable
     {
         private int hours;
         private int minutes;
@@ -37,16 +37,16 @@ namespace MediaSharp.Model
         #region Special serialization
         public Duration (SerializationInfo info, StreamingContext ctxt)
         {
-            this.Hours = (int)info.GetValue("Hours", typeof(int));
-            this.Minutes = (int)info.GetValue("Minutes", typeof(int));
-            this.Secondes = (int)info.GetValue("Secondes", typeof(int));
+            this.hours = (int)info.GetValue("Hours", typeof(int));
+            this.minutes = (int)info.GetValue("Minutes", typeof(int));
+            this.secondes = (int)info.GetValue("Secondes", typeof(int));
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
-            info.AddValue("Hours", this.Hours);
-            info.AddValue("Minutes", this.Minutes);
-            info.AddValue("Secondes", this.Secondes);
+            info.AddValue("Hours", this.hours);
+            info.AddValue("Minutes", this.minutes);
+            info.AddValue("Secondes", this.secondes);
         }
         #endregion
 

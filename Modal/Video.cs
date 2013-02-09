@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace MediaSharp.Model
 {
     [Serializable()]
-    public class Video : Document
+    public class Video : Document, ISerializable
     {
 
         #region SETTERS&GETTERS

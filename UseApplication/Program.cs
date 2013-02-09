@@ -64,18 +64,19 @@ namespace UseApplication
 
         static public Mediatheque DeSerializeObject()
         {
-            Mediatheque objectToSerialize;
+            Mediatheque res;
             Stream stream = File.Open("Mediatheque.dat", FileMode.Open);
             BinaryFormatter bFormatter = new BinaryFormatter();
             try
             {
-                objectToSerialize = (Mediatheque)bFormatter.Deserialize(stream);
+                res = (Mediatheque)bFormatter.Deserialize(stream);
             }
             finally
             {
-                stream.Close();
+                if (stream != null)
+                    stream.Close();
             }
-            return objectToSerialize;
+            return res;
         }
 
         static public void SerializeToXML(Mediatheque mediatheque)
