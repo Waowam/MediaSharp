@@ -37,12 +37,14 @@ namespace MediaSharp.Model
         #endregion
         #region Special serialization
         public Article(SerializationInfo info, StreamingContext ctxt)
+            : base(info, ctxt)
         {
             this.review = (Review)info.GetValue("Review", typeof(Review));
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        new public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
+            base.GetObjectData(info, ctxt);
             info.AddValue("Review", this.review);
         }
         #endregion

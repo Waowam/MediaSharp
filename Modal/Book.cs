@@ -37,13 +37,15 @@ namespace MediaSharp.Model
         #endregion
         #region Special serialization
         public Book(SerializationInfo info, StreamingContext ctxt)
+            : base(info, ctxt)
         {
             this.Editor = (string)info.GetValue("Editor", typeof(string));
             this.publicationYear = (int)info.GetValue("PublicationYear", typeof(int));
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        new public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
+            base.GetObjectData(info, ctxt);
             info.AddValue("Editor", this.Editor);
             info.AddValue("PublicationYear", this.publicationYear);
         }

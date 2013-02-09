@@ -29,13 +29,14 @@ namespace MediaSharp.Model
         #endregion
         #region Special serialization
         public Text(SerializationInfo info, StreamingContext ctxt)
+            : base(info, ctxt)
         {
           
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        new public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
-            
+            base.GetObjectData(info, ctxt);
         }
         #endregion
     }

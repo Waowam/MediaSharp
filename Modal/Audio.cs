@@ -33,12 +33,14 @@ namespace MediaSharp.Model
         #endregion
         #region Special serialization
         public Audio(SerializationInfo info, StreamingContext ctxt)
+            : base(info, ctxt)
         {
             this.Duration = (Duration)info.GetValue("Duration", typeof(Duration));
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        new public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
+            base.GetObjectData(info, ctxt);
             info.AddValue("Duration", this.Duration);
         }
         #endregion

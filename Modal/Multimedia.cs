@@ -33,14 +33,16 @@ namespace MediaSharp.Model
         #endregion
         #region Special serialization
         public Multimedia(SerializationInfo info, StreamingContext ctxt)
+            : base(info, ctxt)
         {
             this.Sound = (Audio)info.GetValue("Sound", typeof(Audio));
             this.Image = (Video)info.GetValue("Image", typeof(Video));
             this.Text = (Text)info.GetValue("Text", typeof(Text));
         }
 
-        public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
+        new public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
+            base.GetObjectData(info, ctxt);
             info.AddValue("Sound", this.Sound);
             info.AddValue("Image", this.Image);
             info.AddValue("Text", this.Text);
