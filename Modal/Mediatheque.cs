@@ -58,10 +58,7 @@ namespace MediaSharp.Model
 
         public void ClearLibrary()
         {
-            foreach (Document d in AllDocuments)
-            {
-                AllDocuments.Remove(d);
-            }
+            AllDocuments.Clear();
         }
 
         public List<Document> GetDocument(string t)
