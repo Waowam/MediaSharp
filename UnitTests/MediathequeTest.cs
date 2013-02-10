@@ -9,10 +9,10 @@ namespace UnitTests
     {
         #region TEST : Constructors
         [TestMethod]
-        public void TestConstructor1()
+        public void TestConstructor()
         {
             Mediatheque med = new Mediatheque();
-            Assert.AreEqual(med.AllDocuments.Count, 0, "Creation d'une mediatheque non vide.");
+            Assert.AreEqual(0, med.AllDocuments.Count, "Creation d'une mediatheque non vide.");
         }
         #endregion
         #region TEST : Methods
@@ -27,21 +27,21 @@ namespace UnitTests
 
             //ADD
             med.AddDocument(docs[0]);
-            Assert.AreEqual(med.AllDocuments.Count, 1, "Mediatheque : erreur ajout document.");
+            Assert.AreEqual(1, med.AllDocuments.Count, "Mediatheque : erreur ajout document.");
             med.AddDocument(docs[1]);
-            Assert.AreEqual(med.AllDocuments.Count, 2, "Mediatheque : erreur ajout document.");
+            Assert.AreEqual(2, med.AllDocuments.Count, "Mediatheque : erreur ajout document.");
             med.AddDocument(docs[2]);
-            Assert.AreEqual(med.AllDocuments.Count, 3, "Mediatheque : erreur ajout document.");
+            Assert.AreEqual(3, med.AllDocuments.Count, "Mediatheque : erreur ajout document.");
            
             //REMOVE
             med.DeleteDocument(docs[0]);
-            Assert.AreEqual(med.AllDocuments.Count, 2, "Mediatheque : erreur suppression document.");
+            Assert.AreEqual(2, med.AllDocuments.Count, "Mediatheque : erreur suppression document.");
             
             med.ClearLibrary();
-            Assert.AreEqual(med.AllDocuments.Count, 0, "Mediatheque : erreur ClearLibrary() document.");
+            Assert.AreEqual(0, med.AllDocuments.Count, "Mediatheque : erreur ClearLibrary() document.");
 
             med.DeleteDocument(docs[0]);
-            Assert.AreEqual(med.AllDocuments.Count, 0, "Mediatheque : erreur suppression document.");
+            Assert.AreEqual(0, med.AllDocuments.Count, "Mediatheque : erreur suppression document.");
         }
         #endregion
     }

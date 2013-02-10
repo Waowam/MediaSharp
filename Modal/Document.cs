@@ -24,7 +24,7 @@ namespace MediaSharp.Model
             set 
             {
                 string[] tmp= value.Split(' ');
-                author = new Author(tmp[1], tmp[0]);
+                author = new Author(tmp[0], tmp[1]);
             }
         }
 
@@ -52,7 +52,7 @@ namespace MediaSharp.Model
         public Document()
         {
             Title = "Sans titre";
-            author = new Author("UnknownName", "UnknownFirstName");//Faut trouvé un moyen d'init mais pas a null
+            author = new Author("UnknownName", "UnknownFirstName");
             copyright = false;
         }
         #endregion

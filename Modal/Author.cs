@@ -16,9 +16,10 @@ namespace MediaSharp.Model
         public string FirstName { get; set; }
         #endregion
         #region CONSTRUCTORS
-        public Author(Model.Author a)
+        public Author(Author a)
         {
             Name = a.Name;
+            FirstName = a.FirstName;
         }
 
         public Author(String n, String fn)

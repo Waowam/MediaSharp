@@ -9,13 +9,14 @@ namespace UnitTests
 {
     class FakeAuthor : Author
     {
-        private string name;
-        private string firstName;
+        public string Name { get; set; }
+
+        public string FirstName { get; set; }
 
         public FakeAuthor()
         {
-            name = "NoName";
-            firstName = "NoFisrtName";
+            Name = "NoName";
+            FirstName = "NoFirstName";
         }
     }
 }
