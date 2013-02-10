@@ -15,9 +15,9 @@ namespace MediaSharp.Model
         private int secondes;
 
         #region GETTERS & SETTERS
-        public int Hours { get { return hours; } set { if (value > 0) { hours = value; } else { hours = 0; } } }
-        public int Minutes { get { return minutes; } set { if (value > 0) { minutes = value; } else { minutes = 0; } } }
-        public int Secondes { get { return secondes; } set { if (value > 0) { secondes = value; } else { secondes = 1; } } }
+        public int Hours { get { return hours; } set { if (value > 0 && value < 24) { hours = value; } else { hours = 0; } } }
+        public int Minutes { get { return minutes; } set { if (value > 0 && value < 59) { minutes = value; } else { minutes = 0; } } }
+        public int Secondes { get { return secondes; } set { if (value > 0 && value < 59) { secondes = value; } else { secondes = 0; } } }
         #endregion
         #region CONSTRUCTORS
         public Duration(int h, int m, int s)
@@ -25,6 +25,8 @@ namespace MediaSharp.Model
             Hours = h;
             Minutes = m;
             Secondes = s;
+            if (Hours == 0 && Minutes == 0 && Secondes == 0)
+                Secondes = 1;
         }
 
         public Duration()

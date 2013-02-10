@@ -55,6 +55,7 @@
     <Compile Include="MediathequeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DocumentTest.cs" />
+    <Compile Include="TestDuration.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Modal\Model.csproj">
