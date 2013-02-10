@@ -52,7 +52,7 @@ namespace MediaSharp.Model
         public Document()
         {
             Title = "Sans titre";
-            author = new Author();//Faut trouvé un moyen d'init mais pas a null
+            author = new Author("UnknownName", "UnknownFirstName");//Faut trouvé un moyen d'init mais pas a null
             copyright = false;
         }
         #endregion
