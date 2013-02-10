@@ -28,6 +28,7 @@ namespace MediaSharp.Controller
             view.SetController(this);
         }
 
+        public Document SelectedDocument { get { return selectedDoc; } }
        
 
         #region The hard work of control the view
@@ -93,12 +94,19 @@ namespace MediaSharp.Controller
             }
         }
 
-        public void AddNewDocumentBis(Document d)
+        public void AddNewDocument(Document d)
         {
             model.AddDocument(d);
             this.updateViewDetailValues(d);
             this.view.CanModifyID = true;
             LoadView();
+        }
+
+        public void UpdateAllInfos(Document d)
+        {
+            model.ReplaceDocument(d);
+            updateViewDetailValues(d);
+            this.view.UpdateGridWithChangedDocument(d);
         }
 
         public void RemoveDocument()
@@ -129,6 +137,17 @@ namespace MediaSharp.Controller
                     }
                 }
             }
+        }
+
+        public void UpdatePrimariesInfos()
+        {
+            updateDocumentWithViewValues(selectedDoc);
+            // Update existing
+            this.view.UpdateGridWithChangedDocument(selectedDoc);
+
+            view.SetSelectedDocumentInGrid(selectedDoc);
+            this.view.CanModifyID = false;
+
         }
 
         #endregion

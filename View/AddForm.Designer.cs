@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnCancel = new System.Windows.Forms.Button();
             this.timePicker = new System.Windows.Forms.DateTimePicker();
             this.txtReEditor = new System.Windows.Forms.TextBox();
             this.txtReTitle = new System.Windows.Forms.TextBox();
@@ -43,16 +42,6 @@
             this.txtAuthor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.spinReviewNumber)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(98, 326);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "&Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // timePicker
             // 
@@ -91,9 +80,10 @@
             // 
             // elementHost2
             // 
+            this.elementHost2.AutoSize = true;
             this.elementHost2.Location = new System.Drawing.Point(2, 87);
             this.elementHost2.Name = "elementHost2";
-            this.elementHost2.Size = new System.Drawing.Size(263, 233);
+            this.elementHost2.Size = new System.Drawing.Size(243, 115);
             this.elementHost2.TabIndex = 7;
             this.elementHost2.Text = "elementHost2";
             this.elementHost2.Child = this.userControl11;
@@ -139,23 +129,28 @@
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(165, 20);
             this.txtAuthor.TabIndex = 12;
+            //butt event
+            this.userControl11.butt_Add_Article.Click+=butt_Add_Article_Click;
+            this.userControl11.butt_Add_Audio.Click+=butt_Add_Audio_Click;
+            this.userControl11.butt_Add_Book.Click+=butt_Add_Book_Click;
+            this.userControl11.butt_Add_Multi.Click += butt_Add_Multi_Click;
+            this.userControl11.butt_Add_Video.Click+=butt_Add_Video_Click;
             // 
             // AddForm
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.Dialog;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(264, 352);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(264, 209);
             this.Controls.Add(this.txtAuthor);
             this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.chkB_CopyR);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.elementHost2);
-            this.Controls.Add(this.btnCancel);
             this.Name = "AddForm";
-            this.Text = "addForm";
+            this.Text = "Formulaire d\'ajout";
             ((System.ComponentModel.ISupportInitialize)(this.spinReviewNumber)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -164,7 +159,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.DateTimePicker timePicker;
         private System.Windows.Forms.TextBox txtReEditor;
         private System.Windows.Forms.TextBox txtReTitle;

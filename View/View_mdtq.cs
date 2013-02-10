@@ -17,7 +17,6 @@ namespace MediaSharp.View
     public partial class View_mdtq : Form, IDocView
     {
         Ctrl_mediatheque controler;
-        AddForm adding_dialog;
 
         public View_mdtq()
         {
@@ -56,7 +55,7 @@ namespace MediaSharp.View
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            adding_dialog = new AddForm();
+            AddForm adding_dialog = new AddForm();
             adding_dialog.SetController(controler);
             adding_dialog.ShowDialog();
         }
@@ -66,9 +65,9 @@ namespace MediaSharp.View
             this.controler.RemoveDocument();
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void btnSaveEdit_Click(object sender, EventArgs e)
         {
-            //A faire ^^
+            this.controler.UpdatePrimariesInfos();
         }
 
         private void grdDocs_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,6 +200,7 @@ namespace MediaSharp.View
             if (rowToUpdate != null)
             {
                 rowToUpdate.Text = doc.ID;
+                rowToUpdate.SubItems[1].Text = doc.GetType().Name;
                 rowToUpdate.SubItems[2].Text = doc.Title;
                 rowToUpdate.SubItems[3].Text = doc.Author;
                 rowToUpdate.SubItems[4].Text = doc.Copyright;
@@ -236,7 +236,6 @@ namespace MediaSharp.View
 
         public void SetSelectedDocumentInGrid(Document doc)
         {
-            Console.WriteLine(doc.GetType());
             foreach (ListViewItem row in this.grdDocs.Items)
             {
                 if (row.Text == doc.ID)
@@ -287,7 +286,13 @@ namespace MediaSharp.View
         }
 
 
-        #endregion      
+        #endregion
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            AddForm adding_dialog = new AddForm(this.controler.SelectedDocument);
+            adding_dialog.SetController(controler);
+            adding_dialog.ShowDialog();
+        }
     }
 }

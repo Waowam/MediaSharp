@@ -238,7 +238,7 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "Save changes";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.btnEdit_Click);
+            this.button4.Click += new System.EventHandler(this.btnSaveEdit_Click);
             // 
             // label4
             // 
@@ -294,6 +294,7 @@
             this.btnEdit.TabIndex = 8;
             this.btnEdit.Text = "Edit selected";
             this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnRemove
             // 

@@ -20,7 +20,7 @@ namespace MediaSharp.Model
         public string Title { get; set; }
         
         public string Author {
-            get { return author.FirstName + " " + author.Name;}
+            get { return author.Name + " " + author.FirstName; }
             set 
             {
                 string[] tmp= value.Split(' ');

@@ -58,7 +58,10 @@ namespace MediaSharp.Model
 
         public void ClearLibrary()
         {
-            AllDocuments.Clear();
+            foreach (Document d in AllDocuments)
+            {
+                AllDocuments.Remove(d);
+            }
         }
 
         public List<Document> GetDocument(string t)
@@ -68,6 +71,14 @@ namespace MediaSharp.Model
             foreach (Document doc in selectRes) { res.Add(doc); }
             return res;
         }
+
+        public void ReplaceDocument(Document doc)
+        {
+            Document row=(from d in AllDocuments where d.ID == doc.ID select d).First();
+            DeleteDocument((Document)row);
+            AddDocument(doc);
+        }
+
         #endregion
     }
 }
