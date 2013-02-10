@@ -10,12 +10,6 @@ namespace MediaSharp.Model
     [Serializable()]
     public class Text : Document, ISerializable
     {
-        #region METHODS
-        public string Print()
-        {
-            return "Document printing. Wait a moment...";
-        }
-        #endregion
         #region CONSTRUCTORS
 
         public Text(String i,String t, Author a, bool c) : base(i,t, a, c)
@@ -37,6 +31,12 @@ namespace MediaSharp.Model
         new public void GetObjectData(SerializationInfo info, StreamingContext ctxt)
         {
             base.GetObjectData(info, ctxt);
+        }
+        #endregion
+        #region METHODS
+        public string Print()
+        {
+            return "Document printing. Wait a moment...";
         }
         #endregion
     }
