@@ -145,6 +145,29 @@ namespace MediaSharp.View
                 this.controler.AddAllDocumentWithType(this.chkB_Video);
         }
 
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            AddForm adding_dialog = new AddForm(this.controler.SelectedDocument);
+            adding_dialog.SetController(controler);
+            adding_dialog.ShowDialog();
+        }
+
+        private void butt_SaveAll_Click(object sender, EventArgs e)
+        {
+            controler.Save_Library();
+        }
+
+        private void butt_print_Click(object sender, EventArgs e)
+        {
+            if (controler.print())
+            {
+                MessageBox.Show("Your document is printing");
+            }
+            else 
+            {
+                MessageBox.Show("Impossible to print the selected document");
+            }
+        }
         #endregion
 
         #region IDocView implementation
@@ -288,11 +311,9 @@ namespace MediaSharp.View
 
         #endregion
 
-        private void btnEdit_Click(object sender, EventArgs e)
-        {
-            AddForm adding_dialog = new AddForm(this.controler.SelectedDocument);
-            adding_dialog.SetController(controler);
-            adding_dialog.ShowDialog();
-        }
+
+
+
+
     }
 }

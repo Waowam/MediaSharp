@@ -23,43 +23,16 @@ namespace UseApplication
         [STAThread]
         static void Main()
         {
-            Mediatheque m = new Mediatheque();
-            m.AddDocument(new Audio("NAM1SPT","SuperTitle1", new Author("Name 1", "Firstname 1"), true,3,2));
-            m.AddDocument(new Video("NAM2TES", "Test", new Author("Name 2", "Firstname 2"), false,00,28,2));
-            m.AddDocument(new Book("TXT3TP", "SuperText", new Author("bla", "bli"), true, "Vi", 2013));
-            m.AddDocument(new Audio("Regarde", "Comme je suis", new Author("trop", "fort"), true,2,52));
-            m.AddDocument(new Video("hein", "hein", new Author("hein", "hein?"), false,0,43,32));
-            
-            /****Serialization test - START*****/ 
-            /* //XML version
-            UseApplication.Program.SerializeToXML(m);
 
-            Mediatheque mCpy = UseApplication.Program.DeserializeFromXML();*/
-            UseApplication.Program.SerializeObject(m);
-
-            Mediatheque mCpy = UseApplication.Program.DeSerializeObject();
+            Mediatheque m = UseApplication.Program.DeSerializeObject();
             /****Serialization test - END*****/
 
             View_mdtq view = new View_mdtq();
             view.Visible = false;
 
-            Ctrl_mediatheque controller = new Ctrl_mediatheque(mCpy, view);
+            Ctrl_mediatheque controller = new Ctrl_mediatheque(m, view);
             controller.LoadView();
             view.ShowDialog();
-        }
-
-        static public void SerializeObject(Mediatheque objectToSerialize)
-        {
-            Stream stream = File.Open("Mediatheque.dat", FileMode.Create);
-            BinaryFormatter bFormatter = new BinaryFormatter();
-            try
-            {
-                bFormatter.Serialize(stream, objectToSerialize);
-            }
-            finally
-            {
-                stream.Close();
-            }
         }
 
         static public Mediatheque DeSerializeObject()
@@ -79,7 +52,7 @@ namespace UseApplication
             return res;
         }
 
-        static public void SerializeToXML(Mediatheque mediatheque)
+       /* static public void SerializeToXML(Mediatheque mediatheque)
         {
             Type[] extraTypes = new Type[5];
                 extraTypes[0] = typeof(Article);
@@ -124,6 +97,6 @@ namespace UseApplication
             }
 
             return mediatheque;
-        }
+        }*/
     }
 }

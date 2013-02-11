@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 
 using MediaSharp.Model;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace MediaSharp.Controller
 {
@@ -32,6 +34,12 @@ namespace MediaSharp.Controller
        
 
         #region The hard work of control the view
+
+        public void Save_Library()
+        {
+            SerializeObject(model);
+        }
+
         public void LoadView()
         {
             view.ClearGrid();
@@ -150,6 +158,25 @@ namespace MediaSharp.Controller
 
         }
 
+        public Boolean print()
+        {
+            return (selectedDoc.GetType().Name == "Article" || selectedDoc.GetType().Name == "Book");
+        }
+
         #endregion
+
+        static public void SerializeObject(Mediatheque objectToSerialize)
+        {
+            Stream stream = File.Open("Mediatheque.dat", FileMode.Create);
+            BinaryFormatter bFormatter = new BinaryFormatter();
+            try
+            {
+                bFormatter.Serialize(stream, objectToSerialize);
+            }
+            finally
+            {
+                stream.Close();
+            }
+        }
     }
 }

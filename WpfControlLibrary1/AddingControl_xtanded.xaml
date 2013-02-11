@@ -115,7 +115,6 @@
                         <RowDefinition Height="15*"></RowDefinition>
                         <RowDefinition Height="15*"></RowDefinition>
                         <RowDefinition Height="15*"></RowDefinition>
-                        <RowDefinition Height="15*"></RowDefinition>
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Grid.ColumnSpan="2" Content="Audio's duration"></Label>
                     <WrapPanel Grid.Row="1" Grid.ColumnSpan="2">
@@ -135,9 +134,7 @@
                     </WrapPanel>
                     <Label  Content="Titre " Grid.Row="5" Grid.ColumnSpan="1"></Label>
                     <TextBox x:Name="txtTitle_Multi" x:FieldModifier="public" Grid.Row="5" Grid.Column="1"/>
-                    <Label Content="Author " Grid.Row="6" Grid.ColumnSpan="1"></Label>
-                    <TextBox x:Name="txtAuthor_Multi" x:FieldModifier="public" Grid.Row="6" Grid.Column="1"/>
-                    <StackPanel Grid.RowSpan="1" Grid.ColumnSpan="1" Grid.Row="7" >
+                    <StackPanel Grid.RowSpan="1" Grid.ColumnSpan="1" Grid.Row="6" >
                         <Button x:Name="butt_Add_Multi" x:FieldModifier="public" Content="Submit" Margin="0,0,64,0" />
                     </StackPanel>
                 </Grid>

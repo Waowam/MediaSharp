@@ -612,20 +612,21 @@
         </generalsInternal>
         <targetEnds>
           <association
-            Id="f36ddac3-bac7-41db-b32a-dfc0edf3ceb7"
+            Id="d562ba15-a60d-4c68-a43d-6ed4f5691696"
             isDerived="false"
             sourceEndRoleName="Multimedia"
-            targetEndRoleName="Audio"
+            targetEndRoleName="Duration"
             isLeaf="false"
+            name="1..2"
             isAbstract="false">
             <classMoniker
-              Id="b595fe11-bf3d-4bde-a9e0-cd32f64aca58"
-              LastKnownName="Audio"
+              Id="5d763cb5-3dd2-4232-8570-ef1e807c7179"
+              LastKnownName="Duration"
               LastKnownLocation="ModelingProject1.uml" />
             <relationshipOwnedElementsInternal>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="2cead6ed-1c21-477e-b5ed-05e3e4da1076"
+                  Id="1702ba5b-90c0-42f9-a316-06ccc890da64"
                   name="Multimedia"
                   isLeaf="false"
                   isStatic="false"
@@ -638,8 +639,8 @@
               </associationHasOwnedEnds>
               <associationHasOwnedEnds>
                 <memberEnd
-                  Id="a5476c68-039c-4980-9dbe-b8c56df74041"
-                  name="Audio"
+                  Id="3c2aaf98-6dad-4d86-8649-581a5f608da4"
+                  name="Duration"
                   isLeaf="false"
                   isStatic="false"
                   isReadOnly="false"
@@ -649,125 +650,34 @@
                   isComposite="false">
                   <lowerValueInternal>
                     <literalString
-                      Id="193ad7f8-6d47-4f65-b69e-788c253325a7"
+                      Id="66e6d67a-06fa-4a8c-8286-1df5bb34c18e"
                       name="Lower"
-                      value="0" />
+                      value="2" />
                   </lowerValueInternal>
                   <upperValueInternal>
                     <literalString
-                      Id="5afa9af9-8a76-4cb8-9297-c51565f52d3a"
+                      Id="a392a3dd-496e-459d-a2a5-8c91466c97f4"
                       name="Upper"
-                      value="1" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="51721cb0-50a7-476a-9830-ee915e5866de"
-            isDerived="false"
-            sourceEndRoleName="Multimedia"
-            targetEndRoleName="Video"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="e4de45cd-de9f-498d-9141-deaae9315507"
-              LastKnownName="Video"
-              LastKnownLocation="ModelingProject1.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="9b2b3e66-a0a2-43f4-9b9e-43016e661de7"
-                  name="Multimedia"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="93e77c3b-946c-48ce-87ca-d526408388df"
-                  name="Video"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="7f6f3392-0320-4be6-b3e6-eb40a7b7a89e"
-                      name="Lower"
-                      value="0" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="88eed637-fb8d-40f7-9b95-9b64a0751dde"
-                      name="Upper"
-                      value="1" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="8bf5cb8e-31b2-4356-9168-d9de81ab70de"
-            isDerived="false"
-            sourceEndRoleName="Multimedia"
-            targetEndRoleName="Text"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="7ed78eb2-477a-4c20-8388-20fc7328230d"
-              LastKnownName="Text"
-              LastKnownLocation="ModelingProject1.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="3419ac09-d7cf-42d4-b2e5-d215a779ea5b"
-                  name="Multimedia"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="cdbba6da-f059-4be7-b317-6b8783574857"
-                  name="Text"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="8f216f09-acb1-4a9e-9e06-2959ff8df618"
-                      name="Lower"
-                      value="0" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="c39876b6-5761-4e7d-b5dd-e42e0926b03f"
-                      name="Upper"
-                      value="1" />
+                      value="2" />
                   </upperValueInternal>
                 </memberEnd>
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
         </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="d48ec31c-2a46-41cd-9e02-c62b78d73754"
+            name="Text_Title"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
       </class>
     </packageHasNamedElement>
   </packagedElements>

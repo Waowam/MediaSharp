@@ -51,6 +51,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.butt_SaveAll = new System.Windows.Forms.Button();
+            this.butt_print = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -232,7 +234,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(277, 102);
+            this.button4.Location = new System.Drawing.Point(277, 98);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(96, 23);
             this.button4.TabIndex = 4;
@@ -278,7 +280,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(429, 36);
+            this.btnAdd.Location = new System.Drawing.Point(431, 21);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(116, 23);
             this.btnAdd.TabIndex = 6;
@@ -288,7 +290,7 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(429, 113);
+            this.btnEdit.Location = new System.Drawing.Point(431, 81);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(116, 23);
             this.btnEdit.TabIndex = 8;
@@ -298,7 +300,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(431, 77);
+            this.btnRemove.Location = new System.Drawing.Point(431, 50);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(116, 23);
             this.btnRemove.TabIndex = 7;
@@ -306,11 +308,33 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
+            // butt_SaveAll
+            // 
+            this.butt_SaveAll.Location = new System.Drawing.Point(433, 110);
+            this.butt_SaveAll.Name = "butt_SaveAll";
+            this.butt_SaveAll.Size = new System.Drawing.Size(114, 23);
+            this.butt_SaveAll.TabIndex = 9;
+            this.butt_SaveAll.Text = "Save library";
+            this.butt_SaveAll.UseVisualStyleBackColor = true;
+            this.butt_SaveAll.Click += new System.EventHandler(this.butt_SaveAll_Click);
+            // 
+            // butt_print
+            // 
+            this.butt_print.Location = new System.Drawing.Point(433, 139);
+            this.butt_print.Name = "butt_print";
+            this.butt_print.Size = new System.Drawing.Size(114, 23);
+            this.butt_print.TabIndex = 10;
+            this.butt_print.Text = "Print";
+            this.butt_print.UseVisualStyleBackColor = true;
+            this.butt_print.Click += new System.EventHandler(this.butt_print_Click);
+            // 
             // View_mdtq
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 463);
+            this.Controls.Add(this.butt_print);
+            this.Controls.Add(this.butt_SaveAll);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.btnAdd);
@@ -354,5 +378,7 @@
         private System.Windows.Forms.CheckBox chBox_copyrght;
         private System.Windows.Forms.TextBox txtAuthor;
         private System.Windows.Forms.TextBox txtType;
+        private System.Windows.Forms.Button butt_SaveAll;
+        private System.Windows.Forms.Button butt_print;
     }
 }

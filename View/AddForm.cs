@@ -54,7 +54,16 @@ namespace View
                     break;
                 case "Multimedia":
                     Multimedia m = (Multimedia)d;
-                    //pas fais.
+                    this.userControl11.spin_Hours_VMulti.Value = m.Image.Hours;
+                    this.userControl11.spin_Minutes_VMulti.Value = m.Image.Minutes;
+                    this.userControl11.spin_Secondes_VMulti.Value = m.Image.Secondes;
+
+                    this.userControl11.spin_Minutes_AMulti.Value = m.Sound.Minutes;
+                    this.userControl11.spin_Secondes_AMulti.Value = m.Sound.Secondes;
+
+                    this.userControl11.txtTitle_Multi.Text = m.Text_title;
+
+                    this.userControl11.xpandListBox.SelectedItem = this.userControl11.xpder_MultiM;
                     break;
                 case "Video":
                     Video v = (Video)d;
@@ -81,12 +90,13 @@ namespace View
                 Random rand = new Random();
                 /***INFOS DOCUMENT***/
                 string generatedId = "" + controller.Model.AllDocuments.Count + this.txtTitle.Text.Substring(0, 3) + rand.Next(100); //ID auto générée
-                //controller.AddNewDocument(new Multimedia(generatedId, this.txtTitle.Text, auth, copyR, new Audio(this.userControl11.spin_Minutes_AMulti.Value, this.userControl11.spin_Secondes_AMulti.Value), new Video(this.userControl11.spin_Hours_VMulti.Value, this.userControl11.spin_Minutes_VMulti.Value, this.userControl11.spin_Secondes_VMulti.Value),new Text()));
+                controller.AddNewDocument(new Multimedia(generatedId, this.txtTitle.Text, auth, copyR, (int)this.userControl11.spin_Minutes_AMulti.Value, (int)this.userControl11.spin_Secondes_AMulti.Value, (int)this.userControl11.spin_Hours_VMulti.Value, (int)this.userControl11.spin_Minutes_VMulti.Value, (int)this.userControl11.spin_Secondes_VMulti.Value,this.userControl11.txtTitle_Multi.Text));
             }
             else
-            { 
-                //controller.UpdateAllInfos();
+            {
+                controller.UpdateAllInfos(new Multimedia(this.id_current_doc, this.txtTitle.Text, auth, copyR, (int)this.userControl11.spin_Minutes_AMulti.Value, (int)this.userControl11.spin_Secondes_AMulti.Value, (int)this.userControl11.spin_Hours_VMulti.Value, (int)this.userControl11.spin_Minutes_VMulti.Value, (int)this.userControl11.spin_Secondes_VMulti.Value, this.userControl11.txtTitle_Multi.Text));
             }
+            this.Dispose();
         }
 
         void butt_Add_Article_Click(object sender, System.Windows.RoutedEventArgs e)
